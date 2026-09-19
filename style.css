@@ -244,6 +244,8 @@ body {
 .item-desc {
   font-size: 0.78rem;
   color: var(--text-dim);
+  line-height: 1.4;
+  word-break: keep-all;
 }
 
 .status-pill {
