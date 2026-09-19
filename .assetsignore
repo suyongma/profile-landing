@@ -1,0 +1,10 @@
+﻿.git
+.wrangler
+node_modules
+push_to_github.ps1
+package.json
+package-lock.json
+worker.js
+wrangler.json
+.node-version
+.nvmrc
