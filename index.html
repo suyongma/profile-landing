@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="dark">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,13 @@
   <meta name="description" content="MASHONG Official Portal and Ecosystem Services.">
   <meta property="og:title" content="MASHONG • Official Portal">
   <meta property="og:description" content="mashong.com official portal and services.">
+  <meta property="og:image" content="./assets/profile.jpg">
   <meta property="og:type" content="website">
 
-  <!-- Google Fonts: Inter & Plus Jakarta Sans for sophisticated typography -->
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 
@@ -21,42 +22,46 @@
      crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Subtle elegant ambient lighting -->
+  <!-- Soft pastel ambient light -->
   <div class="ambient-glow"></div>
 
   <div class="page-wrapper">
     <main class="portal-card">
       
-      <!-- Brand Header -->
-      <header class="brand-header">
-        <div class="brand-emblem">
-          <span class="emblem-letter">M</span>
+      <!-- Profile Avatar & Brand Header -->
+      <section class="profile-hero">
+        <div class="profile-avatar-wrap">
+          <img src="./assets/profile.jpg" alt="MASHONG Profile" class="profile-avatar">
+          <div class="avatar-badge" title="Verified">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+            </svg>
+          </div>
         </div>
+
         <h1 class="brand-title">MASHONG</h1>
         <p class="brand-subtitle">mashong.com</p>
+
         <div class="live-status">
           <span class="status-indicator"></span>
           <span>System Normal</span>
         </div>
-      </header>
+      </section>
 
-      <!-- Clean Divider -->
+      <!-- Divider -->
       <div class="divider"></div>
 
       <!-- Navigation Menu -->
       <nav class="menu-container">
-        <!-- Menu 1: STRI TEST -->
-        <a href="https://stri.mashong.com" target="_blank" rel="noopener noreferrer" class="menu-item primary-item">
-          <div class="item-leading">
-            <div class="item-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-              </svg>
-            </div>
-            <div class="item-text">
-              <div class="item-title-row">
-                <span class="item-title">STRI TEST</span>
-                <span class="status-pill active">LIVE</span>
+        
+        <!-- Menu 1: STRI TEST (Lavender Card) -->
+        <a href="https://stri.mashong.com" target="_blank" rel="noopener noreferrer" class="menu-card lavender" id="link-stri-test">
+          <div class="card-leading">
+            <span class="card-num">01</span>
+            <div class="card-body">
+              <div class="card-title-row">
+                <span class="card-title">STRI TEST</span>
+                <span class="status-pill lavender-pill">LIVE</span>
               </div>
               <div class="item-desc-wrap">
                 <span class="item-desc">나의 눈치·센스 유형 테스트</span>
@@ -64,45 +69,33 @@
               </div>
             </div>
           </div>
-          <div class="item-arrow">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </div>
+          <div class="card-arrow">↗</div>
         </a>
 
-        <!-- Menu 2: 마숑월드 (Mashong World) -->
-        <a href="world.html" class="menu-item">
-          <div class="item-leading">
-            <div class="item-icon world-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
-            </div>
-            <div class="item-text">
-              <div class="item-title-row">
-                <span class="item-title">마숑월드</span>
-                <span class="status-pill pending">준비중</span>
+        <!-- Menu 2: 마숑월드 (Peach Card) -->
+        <a href="world.html" class="menu-card peach" id="link-mashong-world">
+          <div class="card-leading">
+            <span class="card-num">02</span>
+            <div class="card-body">
+              <div class="card-title-row">
+                <span class="card-title">마숑월드</span>
+                <span class="status-pill peach-pill">ENTER</span>
               </div>
-              <span class="item-desc">새로운 경험을 위한 메타버스 플랫폼</span>
+              <div class="item-desc-wrap">
+                <span class="item-desc">무엇을 할까요?</span>
+                <span class="item-acronym">FUN PLAY 게임 · 인베스트 (INVEST) 플랫폼</span>
+              </div>
             </div>
           </div>
-          <div class="item-arrow">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="9" y1="18" x2="15" y2="12"></line>
-              <polyline points="9 6 15 12 9 18"></polyline>
-            </svg>
-          </div>
+          <div class="card-arrow">↗</div>
         </a>
+
       </nav>
 
       <!-- Footer -->
       <footer class="portal-footer">
         <p class="copyright">© 2026 MASHONG. All rights reserved.</p>
-        <p class="meta-tag">Cloudflare Edge Architecture</p>
+        <p class="meta-tag">Cloudflare Edge Architecture • mashong.com</p>
       </footer>
 
     </main>

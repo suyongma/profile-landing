@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="dark">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>마숑월드 | 연동 준비 중</title>
-  <meta name="description" content="마숑월드 서비스 연동 준비 중입니다.">
+  <title>마숑 월드 | MASHONG WORLD</title>
+  <meta name="description" content="마숑 월드 - 무엇을 할까요? FUN PLAY & INVEST">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 
@@ -20,44 +20,152 @@
   <div class="ambient-glow"></div>
 
   <div class="page-wrapper">
-    <main class="portal-card preparing-card">
+    <main class="world-container">
       
-      <!-- Icon Indicator -->
-      <div class="preparing-icon-wrap">
-        <svg class="pulse-orbit" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M12 6v6l4 2"></path>
-        </svg>
-      </div>
+      <!-- Top Brand & Action Bar -->
+      <header class="world-top-nav">
+        <div class="world-brand-logo">
+          <div class="world-icon-badge">
+            <span>🎮</span>
+          </div>
+          <span class="world-brand-title">마숑 월드</span>
+        </div>
+      </header>
 
-      <div class="status-pill pending mt-2 mb-3">연동 준비중 (In Progress)</div>
-
-      <h1 class="preparing-title">마숑월드</h1>
-      <h2 class="preparing-subtitle">서비스 연동 준비 중입니다</h2>
-
-      <p class="preparing-desc">
-        더 나은 가치와 안정적인 서비스를 제공하기 위해<br>
-        새로운 플랫폼을 구축 및 연동하고 있습니다.<br>
-        조금만 기다려 주시면 곧 찾아뵙겠습니다.
-      </p>
-
-      <!-- Back Button -->
-      <div class="action-wrap">
-        <a href="index.html" class="back-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
+      <!-- Action Buttons Row -->
+      <div class="action-buttons-bar">
+        <button class="action-btn" id="btnShare" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
           </svg>
-          <span>메인 포털로 돌아가기</span>
+          <span>공유</span>
+        </button>
+
+        <button class="action-btn" id="btnCopyUrl" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>URL 복사</span>
+        </button>
+
+        <a href="https://stri.mashong.com" target="_blank" rel="noopener noreferrer" class="action-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          <span>마PT 바로가기</span>
+        </a>
+
+        <a href="index.html" class="action-btn" title="메인 포털로 이동">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>로그아웃</span>
         </a>
       </div>
 
+      <!-- Headline -->
+      <section class="world-hero">
+        <p class="world-subtitle-tag">MASHONG WORLD</p>
+        <h1 class="world-main-heading">무엇을 할까요?</h1>
+      </section>
+
+      <!-- Big Cards List -->
+      <section class="world-cards-list">
+        
+        <!-- Card 01: FUN PLAY -->
+        <a href="https://mashong-games.workers.dev" target="_blank" rel="noopener noreferrer" class="world-big-card card-funplay">
+          <div class="card-top-meta">
+            <span class="meta-index">01</span>
+            <span class="meta-category">게임</span>
+          </div>
+          <div class="card-headline-row">
+            <h2 class="card-headline">FUN PLAY</h2>
+            <span class="card-arrow-icon">↗</span>
+          </div>
+          <p class="card-subtext">좀비런 · 꿈의 나라 · 오늘은 투자왕</p>
+        </a>
+
+        <!-- Card 02: 인베스트 (INVEST) -->
+        <a href="#invest" class="world-big-card card-invest" id="investCard">
+          <div class="card-top-meta">
+            <span class="meta-index">02</span>
+            <span class="meta-category">투자</span>
+          </div>
+          <div class="card-headline-row">
+            <h2 class="card-headline">인베스트 (INVEST)</h2>
+            <span class="card-arrow-icon">↗</span>
+          </div>
+          <p class="card-subtext">자동매매 현황과 오늘의 소식</p>
+        </a>
+
+      </section>
+
       <!-- Footer -->
-      <footer class="portal-footer mt-auto">
-        <p class="copyright">© 2026 MASHONG. All rights reserved.</p>
+      <footer class="portal-footer">
+        <p class="copyright">© 2026 MASHONG</p>
       </footer>
 
     </main>
   </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">복사되었습니다!</div>
+
+  <script>
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      if (toast) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+      }
+    }
+
+    // Share button
+    const btnShare = document.getElementById('btnShare');
+    if (btnShare) {
+      btnShare.addEventListener('click', async () => {
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: '마숑 월드',
+              text: '마숑 월드 - 무엇을 할까요? FUN PLAY & INVEST',
+              url: window.location.href
+            });
+          } catch (e) {}
+        } else {
+          navigator.clipboard.writeText(window.location.href);
+          showToast('페이지 주소가 복사되었습니다!');
+        }
+      });
+    }
+
+    // Copy URL button
+    const btnCopyUrl = document.getElementById('btnCopyUrl');
+    if (btnCopyUrl) {
+      btnCopyUrl.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href);
+        showToast('URL이 클립보드에 복사되었습니다!');
+      });
+    }
+
+    // Invest card placeholder alert
+    const investCard = document.getElementById('investCard');
+    if (investCard) {
+      investCard.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast('인베스트 자동매매 서비스 연동 준비 중입니다.');
+      });
+    }
+  </script>
 </body>
 </html>
