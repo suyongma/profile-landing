@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSO Dev | Official Profile & Links Hub</title>
+  <meta name="description" content="Official personal hub, portfolio, and social links. Connect, explore projects, and collaborate.">
+  <meta property="og:title" content="MSO Dev • Official Profile Hub">
+  <meta property="og:description" content="Personal link-tree and digital business card. Fast, responsive, and connected.">
+  <meta property="og:image" content="./assets/avatar.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient background lighting effects -->
+  <div class="bg-glow-orb orb-1"></div>
+  <div class="bg-glow-orb orb-2"></div>
+  <div class="bg-glow-orb orb-3"></div>
+  <div class="grid-pattern"></div>
+
+  <div class="main-container">
+    <!-- Main Profile Card -->
+    <main class="profile-card" id="profileCard">
+      <!-- Top Action Bar -->
+      <header class="card-header">
+        <div class="status-badge" id="statusBadge">
+          <span class="pulsing-dot"></span>
+          <span class="status-text">Available for Projects</span>
+        </div>
+
+        <div class="header-actions">
+          <button class="icon-btn" id="qrBtn" title="QR 코드 공유" aria-label="Show QR Code">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+          </button>
+          
+          <button class="icon-btn" id="themeToggle" title="테마 변경 (다크/라이트)" aria-label="Toggle Theme">
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Profile Avatar & Bio -->
+      <section class="profile-hero">
+        <div class="avatar-wrapper">
+          <div class="avatar-ring"></div>
+          <img src="./assets/avatar.jpg" alt="Profile Avatar" class="profile-avatar" id="avatarImg">
+          <div class="avatar-badge" title="Verified Creator">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+            </svg>
+          </div>
+        </div>
+
+        <h1 class="profile-name">MSO <span class="accent-text">Dev</span></h1>
+        <p class="profile-handle">@mso_creator • Cloud & AI Developer</p>
+        <p class="profile-bio">
+          AI 에이전트와 클라우드 인프라를 활용하여 차세대 디지털 프로덕트를 빌드합니다. 최신 기술과 효율적인 자동화 환경을 지향합니다.
+        </p>
+
+        <!-- Tech Tags -->
+        <div class="tag-cloud">
+          <span class="tech-tag">🚀 Cloudflare</span>
+          <span class="tech-tag">⚡ Python</span>
+          <span class="tech-tag">🌐 Next.js</span>
+          <span class="tech-tag">🤖 AI Agent</span>
+          <span class="tech-tag">🐳 Docker</span>
+        </div>
+      </section>
+
+      <!-- Quick Action Buttons -->
+      <section class="quick-actions">
+        <button class="action-btn primary" id="copyEmailBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span class="btn-text">이메일 복사</span>
+        </button>
+
+        <a href="mailto:contact@yourdomain.com" class="action-btn secondary" id="emailLink">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span class="btn-text">문의 보내기</span>
+        </a>
+
+        <button class="action-btn secondary" id="vcardBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="8.5" cy="7" r="4"></circle>
+            <line x1="20" y1="8" x2="20" y2="14"></line>
+            <line x1="23" y1="11" x2="17" y2="11"></line>
+          </svg>
+          <span class="btn-text">연락처 저장</span>
+        </button>
+      </section>
+
+      <!-- Categorized Links Section -->
+      <section class="links-section">
+        <h2 class="section-title">
+          <span>Featured Projects</span>
+          <div class="line"></div>
+        </h2>
+
+        <!-- Link 1: Featured Project -->
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-card featured" id="link-featured">
+          <div class="link-icon-box project-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div class="link-content">
+            <div class="link-title-row">
+              <span class="link-title">Next-Gen AI Workspace</span>
+              <span class="pill-badge live">Live Demo</span>
+            </div>
+            <p class="link-desc">클라우드와 AI 에이전트를 결합한 지능형 개발 환경</p>
+          </div>
+          <div class="link-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Link 2: GitHub -->
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-card" id="link-github">
+          <div class="link-icon-box github-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+            </svg>
+          </div>
+          <div class="link-content">
+            <div class="link-title-row">
+              <span class="link-title">GitHub Repository</span>
+              <span class="pill-badge">Source Code</span>
+            </div>
+            <p class="link-desc">오픈소스 기여 및 최신 프로젝트 소스 코드</p>
+          </div>
+          <div class="link-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Link 3: Tech Blog -->
+        <a href="https://velog.io" target="_blank" rel="noopener noreferrer" class="link-card" id="link-blog">
+          <div class="link-icon-box blog-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <div class="link-content">
+            <div class="link-title-row">
+              <span class="link-title">Tech Blog & Insights</span>
+              <span class="pill-badge new">Weekly</span>
+            </div>
+            <p class="link-desc">개발 노하우, 클라우드 아키텍처, AI 자동화 기록</p>
+          </div>
+          <div class="link-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+
+        <h2 class="section-title mt-4">
+          <span>Connect & Socials</span>
+          <div class="line"></div>
+        </h2>
+
+        <!-- Link 4: LinkedIn -->
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="link-card" id="link-linkedin">
+          <div class="link-icon-box linkedin-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </div>
+          <div class="link-content">
+            <div class="link-title-row">
+              <span class="link-title">LinkedIn Profile</span>
+            </div>
+            <p class="link-desc">경력 사항 및 비즈니스 네트워크 연결</p>
+          </div>
+          <div class="link-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Link 5: YouTube / Media -->
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="link-card" id="link-youtube">
+          <div class="link-icon-box youtube-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </div>
+          <div class="link-content">
+            <div class="link-title-row">
+              <span class="link-title">YouTube Channel</span>
+            </div>
+            <p class="link-desc">코딩 및 IT 테크 관련 콘텐츠</p>
+          </div>
+          <div class="link-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+        </a>
+      </section>
+
+      <!-- Card Footer -->
+      <footer class="card-footer">
+        <div class="footer-badge">
+          <span class="cf-icon">⚡</span> Hosted on <strong>Cloudflare Pages</strong>
+        </div>
+        <p class="copyright">© 2026 MSO Dev. All rights reserved.</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- QR Code Modal -->
+  <div class="modal-backdrop" id="qrModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="qrCloseBtn">&times;</button>
+      <div class="qr-container">
+        <h3>스마트폰으로 스캔하기</h3>
+        <p class="modal-subtitle">카메라 앱으로 비추면 모바일에서 바로 열립니다.</p>
+        <div class="qr-code-box" id="qrCodeWrapper">
+          <!-- Dynamically generated QR SVG -->
+        </div>
+        <div class="modal-url" id="currentUrlText">https://yourdomain.com</div>
+        <button class="action-btn primary full-width" id="shareCopyUrlBtn">
+          링크 복사하기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✨</span>
+    <span class="toast-msg">클립보드에 복사되었습니다!</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
