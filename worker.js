@@ -1,8 +1,15 @@
-﻿export default {
+export default {
   async fetch(request, env) {
     try {
       if (env && env.ASSETS) {
         const url = new URL(request.url);
+
+        // If accessed via world.mashong.com subdomain root, route directly to world.html
+        if (url.hostname === 'world.mashong.com' && (url.pathname === '/' || url.pathname === '')) {
+          const worldUrl = new URL('/world.html', request.url);
+          return await env.ASSETS.fetch(new Request(worldUrl, request));
+        }
+
         let response = await env.ASSETS.fetch(request);
         
         // If not found and path doesn't have an extension, try path.html
