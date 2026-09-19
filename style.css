@@ -241,11 +241,30 @@ body {
   color: var(--text-pure);
 }
 
+.item-desc-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
 .item-desc {
-  font-size: 0.78rem;
-  color: var(--text-dim);
+  font-size: 0.8rem;
+  color: var(--text-muted);
   line-height: 1.4;
   word-break: keep-all;
+}
+
+.item-acronym {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 0.02em;
+  font-family: var(--font-sans);
+}
+
+.acronym-letter {
+  color: var(--accent-blue);
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
 }
 
 .status-pill {
