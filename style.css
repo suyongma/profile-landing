@@ -398,6 +398,24 @@ body {
   color: var(--text-dim);
 }
 
+.footer-email {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 5px;
+}
+
+.footer-email a {
+  color: var(--text-sub);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.footer-email a:hover {
+  color: var(--text-main);
+  text-decoration: underline;
+}
+
 /* -------------------------------------------------------------------------- */
 /* 마숑월드 (Mashong World) Specific Styles                                   */
 /* -------------------------------------------------------------------------- */
