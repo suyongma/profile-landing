@@ -29,6 +29,12 @@
   --peach-text: #a06e49;
   --peach-accent: #c4763e;
 
+  --sky-bg: #eaf2fb;
+  --sky-hover: #dff0fc;
+  --sky-border: #cfe2f4;
+  --sky-text: #36658f;
+  --sky-accent: #2563eb;
+
   --status-green-bg: #ebf7ee;
   --status-green-text: #2e7d32;
   --status-green-border: #c8e6c9;
@@ -234,6 +240,18 @@ body {
   box-shadow: var(--shadow-hover);
 }
 
+/* Sky Card (MAPT) */
+.menu-card.sky {
+  background-color: var(--sky-bg);
+  border: 1px solid var(--sky-border);
+}
+
+.menu-card.sky:hover {
+  background-color: var(--sky-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
 .card-leading {
   display: flex;
   align-items: flex-start;
@@ -249,6 +267,7 @@ body {
 
 .menu-card.lavender .card-num { color: var(--lavender-text); }
 .menu-card.peach .card-num { color: var(--peach-text); }
+.menu-card.sky .card-num { color: var(--sky-text); }
 
 .card-body {
   display: flex;
@@ -289,6 +308,12 @@ body {
   border: 1px solid var(--peach-border);
 }
 
+.status-pill.sky-pill {
+  background: #ffffff;
+  color: var(--sky-accent);
+  border: 1px solid var(--sky-border);
+}
+
 .item-desc-wrap {
   display: flex;
   flex-direction: column;
@@ -324,6 +349,7 @@ body {
 
 .menu-card.lavender .card-arrow { color: var(--lavender-text); }
 .menu-card.peach .card-arrow { color: var(--peach-text); }
+.menu-card.sky .card-arrow { color: var(--sky-text); }
 
 .menu-card:hover .card-arrow {
   transform: translate(2px, -2px);
