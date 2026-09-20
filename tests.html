@@ -105,13 +105,13 @@
         </a>
 
         <!-- Menu 2: IPIP TEST (Mint Card) -->
-        <a href="#ipip" class="menu-card mint" id="link-ipip-test">
+        <a href="https://ipip.mashong.com" target="_blank" rel="noopener noreferrer" class="menu-card mint" id="link-ipip-test">
           <div class="card-leading">
             <span class="card-num">02</span>
             <div class="card-body">
               <div class="card-title-row">
                 <span class="card-title">IPIP TEST</span>
-                <span class="status-pill mint-pill">준비중</span>
+                <span class="status-pill mint-pill">LIVE</span>
               </div>
               <div class="item-desc-wrap">
                 <span class="item-desc">성격검사</span>
@@ -171,15 +171,6 @@
       btnCopyUrl.addEventListener('click', () => {
         navigator.clipboard.writeText(window.location.href);
         showToast('URL이 클립보드에 복사되었습니다!');
-      });
-    }
-
-    // IPIP Test card preparation alert
-    const ipipCard = document.getElementById('link-ipip-test');
-    if (ipipCard) {
-      ipipCard.addEventListener('click', (e) => {
-        e.preventDefault();
-        showToast('IPIP 성격검사 서비스 연동 준비 중입니다.');
       });
     }
   </script>
