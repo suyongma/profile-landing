@@ -42,9 +42,21 @@
         <h1 class="brand-title">MASHONG</h1>
         <p class="brand-subtitle">mashong.com</p>
 
-        <div class="live-status">
-          <span class="status-indicator"></span>
-          <span>System Normal</span>
+        <div class="hero-badge-group">
+          <div class="live-status">
+            <span class="status-indicator"></span>
+            <span>System Normal</span>
+          </div>
+          <button class="share-btn" id="btnShare" type="button" aria-label="공유하기">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <span>공유하기</span>
+          </button>
         </div>
       </section>
 
@@ -117,5 +129,68 @@
 
     </main>
   </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">복사되었습니다!</div>
+
+  <script>
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      if (toast) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+      }
+    }
+
+    // Share button
+    const btnShare = document.getElementById('btnShare');
+    if (btnShare) {
+      btnShare.addEventListener('click', async () => {
+        const shareData = {
+          title: 'MASHONG | Official Portal',
+          text: 'MASHONG official portal and services',
+          url: window.location.href.includes('localhost') ? 'https://mashong.com' : window.location.href
+        };
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+          } catch (e) {
+            if (e.name !== 'AbortError') {
+              copyUrl(shareData.url);
+            }
+          }
+        } else {
+          copyUrl(shareData.url);
+        }
+      });
+    }
+
+    function copyUrl(url) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => {
+          showToast('🔗 페이지 주소가 복사되었습니다!');
+        }).catch(() => {
+          fallbackCopy(url);
+        });
+      } else {
+        fallbackCopy(url);
+      }
+    }
+
+    function fallbackCopy(url) {
+      const tempInput = document.createElement('input');
+      tempInput.value = url;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast('🔗 페이지 주소가 복사되었습니다!');
+      } catch (err) {
+        showToast('주소: ' + url);
+      }
+      document.body.removeChild(tempInput);
+    }
+  </script>
 </body>
 </html>

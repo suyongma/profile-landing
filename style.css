@@ -186,6 +186,43 @@ body {
   font-weight: 600;
 }
 
+.hero-badge-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(43, 53, 79, 0.04);
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.share-btn:hover {
+  background: var(--lavender-bg);
+  border-color: var(--lavender-border);
+  color: var(--lavender-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(43, 53, 79, 0.08);
+}
+
+.share-btn:active {
+  transform: translateY(0);
+}
+
 .status-indicator {
   width: 6px;
   height: 6px;
