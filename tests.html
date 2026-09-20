@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>성향 테스트 | MASHONG TEST</title>
+  <meta name="description" content="마숑 성향 테스트 - STRI 눈치·센스 유형 테스트 및 IPIP 성격검사">
+  <meta property="og:title" content="성향 테스트 • MASHONG">
+  <meta property="og:description" content="나를 알아가는 다양한 성향 및 성격 검사">
+  <meta property="og:image" content="./assets/profile.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8560052678270280"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Soft pastel ambient light -->
+  <div class="ambient-glow"></div>
+
+  <div class="page-wrapper">
+    <main class="world-container">
+      
+      <!-- Top Brand & Action Bar -->
+      <header class="world-top-nav">
+        <div class="world-brand-logo">
+          <div class="world-icon-badge" style="background: var(--lavender-bg); border: 1px solid var(--lavender-border);">
+            <span>🧭</span>
+          </div>
+          <span class="world-brand-title">성향 테스트</span>
+        </div>
+      </header>
+
+      <!-- Action Buttons Row -->
+      <div class="action-buttons-bar">
+        <a href="index.html" class="action-btn" title="메인 포털로 이동">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>메인으로</span>
+        </a>
+
+        <button class="action-btn" id="btnShare" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          <span>공유</span>
+        </button>
+
+        <button class="action-btn" id="btnCopyUrl" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>URL 복사</span>
+        </button>
+
+        <a href="https://world.mashong.com" class="action-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span>마숑월드</span>
+        </a>
+      </div>
+
+      <!-- Headline -->
+      <section class="world-hero">
+        <p class="world-subtitle-tag">MASHONG TESTS</p>
+        <h1 class="world-main-heading">성향 테스트</h1>
+      </section>
+
+      <!-- Tests Navigation Menu List -->
+      <nav class="menu-container">
+        
+        <!-- Menu 1: STRI TEST (Lavender Card) -->
+        <a href="https://stri.mashong.com" target="_blank" rel="noopener noreferrer" class="menu-card lavender" id="link-stri-test">
+          <div class="card-leading">
+            <span class="card-num">01</span>
+            <div class="card-body">
+              <div class="card-title-row">
+                <span class="card-title">STRI TEST</span>
+                <span class="status-pill lavender-pill">LIVE</span>
+              </div>
+              <div class="item-desc-wrap">
+                <span class="item-desc">나의 눈치·센스 유형 테스트</span>
+                <span class="item-acronym">(<strong class="acronym-letter">S</strong>ocial <strong class="acronym-letter">T</strong>endency &amp; <strong class="acronym-letter">R</strong>esponse <strong class="acronym-letter">I</strong>ndicator)</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-arrow">↗</div>
+        </a>
+
+        <!-- Menu 2: IPIP TEST (Mint Card) -->
+        <a href="https://ipip.mashong.com" class="menu-card mint" id="link-ipip-test">
+          <div class="card-leading">
+            <span class="card-num">02</span>
+            <div class="card-body">
+              <div class="card-title-row">
+                <span class="card-title">IPIP TEST</span>
+                <span class="status-pill mint-pill">SOON</span>
+              </div>
+              <div class="item-desc-wrap">
+                <span class="item-desc">성격검사</span>
+                <span class="item-acronym">(<strong class="acronym-letter">I</strong>nternational <strong class="acronym-letter">P</strong>ersonality <strong class="acronym-letter">I</strong>tem <strong class="acronym-letter">P</strong>ool)</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-arrow">↗</div>
+        </a>
+
+      </nav>
+
+      <!-- Footer -->
+      <footer class="portal-footer">
+        <p class="copyright">© 2026 MASHONG. All rights reserved.</p>
+        <p class="meta-tag">Cloudflare Edge Architecture • mashong.com</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">복사되었습니다!</div>
+
+  <script>
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      if (toast) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+      }
+    }
+
+    // Share button
+    const btnShare = document.getElementById('btnShare');
+    if (btnShare) {
+      btnShare.addEventListener('click', async () => {
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: '성향 테스트 | MASHONG TEST',
+              text: '마숑 성향 테스트 (STRI TEST, IPIP TEST)',
+              url: window.location.href
+            });
+          } catch (e) {}
+        } else {
+          navigator.clipboard.writeText(window.location.href);
+          showToast('페이지 주소가 복사되었습니다!');
+        }
+      });
+    }
+
+    // Copy URL button
+    const btnCopyUrl = document.getElementById('btnCopyUrl');
+    if (btnCopyUrl) {
+      btnCopyUrl.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href);
+        showToast('URL이 클립보드에 복사되었습니다!');
+      });
+    }
+
+    // IPIP Test card preparation alert
+    const ipipCard = document.getElementById('link-ipip-test');
+    if (ipipCard) {
+      ipipCard.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast('IPIP 성격검사 서비스 연동 준비 중입니다.');
+      });
+    }
+  </script>
+</body>
+</html>

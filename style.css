@@ -35,6 +35,12 @@
   --sky-text: #36658f;
   --sky-accent: #2563eb;
 
+  --mint-bg: #eaf5ee;
+  --mint-hover: #def0e5;
+  --mint-border: #d0e7da;
+  --mint-text: #376d50;
+  --mint-accent: #15803d;
+
   --status-green-bg: #ebf7ee;
   --status-green-text: #2e7d32;
   --status-green-border: #c8e6c9;
@@ -252,6 +258,18 @@ body {
   box-shadow: var(--shadow-hover);
 }
 
+/* Mint Card (IPIP TEST) */
+.menu-card.mint {
+  background-color: var(--mint-bg);
+  border: 1px solid var(--mint-border);
+}
+
+.menu-card.mint:hover {
+  background-color: var(--mint-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
 .card-leading {
   display: flex;
   align-items: flex-start;
@@ -268,6 +286,7 @@ body {
 .menu-card.lavender .card-num { color: var(--lavender-text); }
 .menu-card.peach .card-num { color: var(--peach-text); }
 .menu-card.sky .card-num { color: var(--sky-text); }
+.menu-card.mint .card-num { color: var(--mint-text); }
 
 .card-body {
   display: flex;
@@ -314,6 +333,12 @@ body {
   border: 1px solid var(--sky-border);
 }
 
+.status-pill.mint-pill {
+  background: #ffffff;
+  color: var(--mint-accent);
+  border: 1px solid var(--mint-border);
+}
+
 .item-desc-wrap {
   display: flex;
   flex-direction: column;
@@ -350,6 +375,7 @@ body {
 .menu-card.lavender .card-arrow { color: var(--lavender-text); }
 .menu-card.peach .card-arrow { color: var(--peach-text); }
 .menu-card.sky .card-arrow { color: var(--sky-text); }
+.menu-card.mint .card-arrow { color: var(--mint-text); }
 
 .menu-card:hover .card-arrow {
   transform: translate(2px, -2px);
