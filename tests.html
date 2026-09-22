@@ -123,13 +123,13 @@
         </a>
 
         <!-- Menu 3: IPC TEST (Peach Card) -->
-        <a href="#ipc" class="menu-card peach" id="link-ipc-test">
+        <a href="https://ipc.mashong.com" target="_blank" rel="noopener noreferrer" class="menu-card peach" id="link-ipc-test">
           <div class="card-leading">
             <span class="card-num">03</span>
             <div class="card-body">
               <div class="card-title-row">
                 <span class="card-title">IPC TEST</span>
-                <span class="status-pill peach-pill">SOON</span>
+                <span class="status-pill peach-pill">LIVE</span>
               </div>
               <div class="item-desc-wrap">
                 <span class="item-desc">대인관계 성향 테스트</span>
@@ -189,15 +189,6 @@
       btnCopyUrl.addEventListener('click', () => {
         navigator.clipboard.writeText(window.location.href);
         showToast('URL이 클립보드에 복사되었습니다!');
-      });
-    }
-
-    // IPC Test card preparation alert
-    const ipcCard = document.getElementById('link-ipc-test');
-    if (ipcCard) {
-      ipcCard.addEventListener('click', (e) => {
-        e.preventDefault();
-        showToast('IPC 대인관계 성향 테스트 준비 중입니다.');
       });
     }
   </script>
