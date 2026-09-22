@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>성향 테스트 | MASHONG TEST</title>
-  <meta name="description" content="마숑 성향 테스트 - STRI 눈치·센스 유형 테스트 및 IPIP 성격검사">
+  <meta name="description" content="마숑 성향 테스트 - STRI 눈치·센스 유형 테스트, IPIP 성격검사 및 IPC 대인관계 성향 테스트">
   <meta property="og:title" content="성향 테스트 • MASHONG">
   <meta property="og:description" content="나를 알아가는 다양한 성향 및 성격 검사">
   <meta property="og:image" content="./assets/profile.jpg">
@@ -122,6 +122,24 @@
           <div class="card-arrow">↗</div>
         </a>
 
+        <!-- Menu 3: IPC TEST (Peach Card) -->
+        <a href="#ipc" class="menu-card peach" id="link-ipc-test">
+          <div class="card-leading">
+            <span class="card-num">03</span>
+            <div class="card-body">
+              <div class="card-title-row">
+                <span class="card-title">IPC TEST</span>
+                <span class="status-pill peach-pill">SOON</span>
+              </div>
+              <div class="item-desc-wrap">
+                <span class="item-desc">대인관계 성향 테스트</span>
+                <span class="item-acronym">(<strong class="acronym-letter">I</strong>nter<strong class="acronym-letter">P</strong>ersonal <strong class="acronym-letter">C</strong>ircumplex)</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-arrow">↗</div>
+        </a>
+
       </nav>
 
       <!-- Footer -->
@@ -154,7 +172,7 @@
           try {
             await navigator.share({
               title: '성향 테스트 | MASHONG TEST',
-              text: '마숑 성향 테스트 (STRI TEST, IPIP TEST)',
+              text: '마숑 성향 테스트 (STRI TEST, IPIP TEST, IPC TEST)',
               url: window.location.href
             });
           } catch (e) {}
@@ -171,6 +189,15 @@
       btnCopyUrl.addEventListener('click', () => {
         navigator.clipboard.writeText(window.location.href);
         showToast('URL이 클립보드에 복사되었습니다!');
+      });
+    }
+
+    // IPC Test card preparation alert
+    const ipcCard = document.getElementById('link-ipc-test');
+    if (ipcCard) {
+      ipcCard.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast('IPC 대인관계 성향 테스트 준비 중입니다.');
       });
     }
   </script>
