@@ -2,37 +2,62 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>MASHONG | Official Portal</title>
-  <meta name="description" content="MASHONG Official Portal and Ecosystem Services.">
-  <meta property="og:title" content="MASHONG • Official Portal">
-  <meta property="og:description" content="mashong.com official portal and services.">
-  <meta property="og:image" content="./assets/profile.jpg">
-  <meta property="og:type" content="website">
+  <meta name="description" content="마숑(MASHONG) 공식 포털 — 성향 테스트, 마숑월드, 마PT, 뭐 사지? 서비스를 한곳에서 만나보세요.">
+  <link rel="canonical" href="https://mashong.com/">
+  <meta name="theme-color" content="#f8f7f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#13151b" media="(prefers-color-scheme: dark)">
 
-  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MASHONG">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:url" content="https://mashong.com/">
+  <meta property="og:title" content="MASHONG • Official Portal">
+  <meta property="og:description" content="성향 테스트, 마숑월드, 마PT, 뭐 사지? — 마숑의 모든 서비스를 한곳에서.">
+  <meta property="og:image" content="https://mashong.com/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <!-- Fonts: Pretendard (Korean) + Plus Jakarta Sans (Latin display) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MASHONG",
+    "alternateName": "마숑",
+    "url": "https://mashong.com/"
+  }
+  </script>
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8560052678270280"
      crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Soft pastel ambient light -->
-  <div class="ambient-glow"></div>
+  <div class="ambient-glow" aria-hidden="true"></div>
 
   <div class="page-wrapper">
     <main class="portal-card">
-      
+
       <!-- Profile Avatar & Brand Header -->
-      <section class="profile-hero">
+      <section class="profile-hero reveal" style="--i:0">
         <div class="profile-avatar-wrap">
-          <img src="./assets/profile.jpg" alt="MASHONG Profile" class="profile-avatar">
-          <div class="avatar-badge" title="Verified">
+          <img src="/assets/profile.jpg" alt="마숑 프로필 일러스트" class="profile-avatar" width="96" height="96" fetchpriority="high">
+          <div class="avatar-badge" title="Verified" aria-hidden="true">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
               <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
             </svg>
@@ -43,12 +68,12 @@
         <p class="brand-subtitle">mashong.com</p>
 
         <div class="hero-badge-group">
-          <div class="live-status">
-            <span class="status-indicator"></span>
-            <span>System Normal</span>
+          <div class="live-status" data-status-summary data-state="checking" role="status" aria-live="polite">
+            <span class="status-indicator" aria-hidden="true"></span>
+            <span data-status-label>Checking…</span>
           </div>
-          <button class="share-btn" id="btnShare" type="button" aria-label="공유하기">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <button class="share-btn" data-action="share" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
               <circle cx="18" cy="5" r="3"></circle>
               <circle cx="6" cy="12" r="3"></circle>
               <circle cx="18" cy="19" r="3"></circle>
@@ -60,72 +85,78 @@
         </div>
       </section>
 
-      <!-- Divider -->
-      <div class="divider"></div>
+      <div class="divider reveal" style="--i:1" aria-hidden="true"></div>
 
       <!-- Navigation Menu -->
-      <nav class="menu-container">
-        
-        <!-- Menu 1: 성향 테스트 (Lavender Card) -->
-        <a href="tests.html" class="menu-card lavender" id="link-tests">
+      <nav class="menu-container" aria-label="마숑 서비스">
+
+        <!-- Menu 1: 성향 테스트 -->
+        <a href="/tests" class="menu-card lavender reveal" style="--i:2" id="link-tests">
           <div class="card-leading">
-            <span class="card-num">01</span>
+            <span class="card-num" aria-hidden="true">01</span>
             <div class="card-body">
               <div class="card-title-row">
                 <span class="card-title">성향 테스트</span>
-                <span class="status-pill lavender-pill">ENTER</span>
+                <span class="status-pill"><span class="svc-dot" data-service="stri,ipip,ipc" aria-hidden="true"></span>ENTER</span>
               </div>
               <div class="item-desc-wrap">
-                <span class="item-desc">(STRI, IPIP, IPC....)</span>
+                <span class="item-desc">STRI · IPIP · IPC 외 다양한 성향 검사</span>
               </div>
             </div>
           </div>
-          <div class="card-arrow">↗</div>
+          <span class="card-arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </span>
         </a>
 
-        <!-- Menu 2: 마숑월드 (Peach Card) -->
-        <a href="https://world.mashong.com" class="menu-card peach" id="link-mashong-world">
+        <!-- Menu 2: 마숑월드 -->
+        <a href="https://world.mashong.com" class="menu-card peach reveal" style="--i:3" id="link-mashong-world">
           <div class="card-leading">
-            <span class="card-num">02</span>
+            <span class="card-num" aria-hidden="true">02</span>
             <div class="card-body">
               <div class="card-title-row">
                 <span class="card-title">마숑월드</span>
-                <span class="status-pill peach-pill">ENTER</span>
+                <span class="status-pill"><span class="svc-dot" data-service="world" aria-hidden="true"></span>ENTER</span>
               </div>
               <div class="item-desc-wrap">
                 <span class="item-desc">회원공간 (자동매매 dashboard)</span>
-                <span class="item-acronym">FUN PLAY 게임 · 인베스트 (INVEST) 플랫폼</span>
+                <span class="item-subtext">FUN PLAY 게임 · 인베스트 (INVEST) 플랫폼</span>
               </div>
             </div>
           </div>
-          <div class="card-arrow">↗</div>
+          <span class="card-arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </span>
         </a>
 
-        <!-- Menu 3: 마PT (Sky Card) -->
-        <a href="https://mapt.mashong.com" target="_blank" rel="noopener noreferrer" class="menu-card sky" id="link-mapt">
+        <!-- Menu 3: 마PT -->
+        <a href="https://mapt.mashong.com" target="_blank" rel="noopener noreferrer" class="menu-card sky reveal" style="--i:4" id="link-mapt">
           <div class="card-leading">
-            <span class="card-num">03</span>
+            <span class="card-num" aria-hidden="true">03</span>
             <div class="card-body">
               <div class="card-title-row">
-                <span class="card-title">마PT(Chat MaPT)</span>
-                <span class="status-pill sky-pill">AI</span>
+                <span class="card-title">마PT (Chat MaPT)</span>
+                <span class="status-pill"><span class="svc-dot" data-service="mapt" aria-hidden="true"></span>AI</span>
               </div>
               <div class="item-desc-wrap">
-                <span class="item-desc">LLM Chat(local)</span>
+                <span class="item-desc">LLM Chat (local)</span>
               </div>
             </div>
           </div>
-          <div class="card-arrow">↗</div>
+          <span class="card-arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </span>
+          <span class="sr-only">(새 창에서 열림)</span>
         </a>
 
-        <!-- Menu 4: 뭐 사지? (Mint Card) -->
-        <a href="https://shopping.mashong.com" target="_blank" rel="noopener noreferrer" class="menu-card mint" id="link-whattobuy">
+        <!-- Menu 4: 뭐 사지? -->
+        <a href="https://shopping.mashong.com" target="_blank" rel="noopener noreferrer" class="menu-card mint reveal" style="--i:5" id="link-whattobuy">
           <div class="card-leading">
-            <span class="card-num">04</span>
+            <span class="card-num" aria-hidden="true">04</span>
             <div class="card-body">
               <div class="card-title-row">
                 <span class="card-title">뭐 사지?</span>
-                <span class="status-pill mint-pill">LIVE</span>
+                <span class="status-pill"><span class="svc-dot" data-service="shopping" aria-hidden="true"></span>LIVE</span>
               </div>
               <div class="item-desc-wrap">
                 <span class="item-desc">고민은 짧게, 선택은 나답게</span>
@@ -133,13 +164,16 @@
               </div>
             </div>
           </div>
-          <div class="card-arrow">↗</div>
+          <span class="card-arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </span>
+          <span class="sr-only">(새 창에서 열림)</span>
         </a>
 
       </nav>
 
       <!-- Footer -->
-      <footer class="portal-footer">
+      <footer class="portal-footer reveal" style="--i:6">
         <p class="copyright">© 2026 MASHONG. All rights reserved.</p>
         <p class="meta-tag">Cloudflare Edge Architecture • mashong.com</p>
         <p class="footer-email">e-mail 문의: <a href="mailto:mso0504@naver.com">mso0504@naver.com</a></p>
@@ -148,67 +182,8 @@
     </main>
   </div>
 
-  <!-- Toast Notification -->
-  <div class="toast" id="toast">복사되었습니다!</div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script>
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      if (toast) {
-        toast.textContent = msg;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2200);
-      }
-    }
-
-    // Share button
-    const btnShare = document.getElementById('btnShare');
-    if (btnShare) {
-      btnShare.addEventListener('click', async () => {
-        const shareData = {
-          title: 'MASHONG | Official Portal',
-          text: 'MASHONG official portal and services',
-          url: window.location.href.includes('localhost') ? 'https://mashong.com' : window.location.href
-        };
-        if (navigator.share) {
-          try {
-            await navigator.share(shareData);
-          } catch (e) {
-            if (e.name !== 'AbortError') {
-              copyUrl(shareData.url);
-            }
-          }
-        } else {
-          copyUrl(shareData.url);
-        }
-      });
-    }
-
-    function copyUrl(url) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(() => {
-          showToast('🔗 페이지 주소가 복사되었습니다!');
-        }).catch(() => {
-          fallbackCopy(url);
-        });
-      } else {
-        fallbackCopy(url);
-      }
-    }
-
-    function fallbackCopy(url) {
-      const tempInput = document.createElement('input');
-      tempInput.value = url;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      try {
-        document.execCommand('copy');
-        showToast('🔗 페이지 주소가 복사되었습니다!');
-      } catch (err) {
-        showToast('주소: ' + url);
-      }
-      document.body.removeChild(tempInput);
-    }
-  </script>
+  <script src="app.js" defer></script>
 </body>
 </html>

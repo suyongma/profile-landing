@@ -1,83 +1,128 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // --------------------------------------------------------------------------
-  // 1. Theme Toggle Logic
-  // --------------------------------------------------------------------------
-  const themeToggle = document.getElementById('themeToggle');
-  const html = document.documentElement;
-
-  const savedTheme = localStorage.getItem('site-theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-  html.setAttribute('data-theme', initialTheme);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('site-theme', newTheme);
-      showToast(newTheme === 'dark' ? '🌙 다크 모드로 전환되었습니다' : '☀️ 라이트 모드로 전환되었습니다');
-    });
-  }
+// Shared behaviour for all MASHONG pages: toast, share / copy URL, live service status.
+(() => {
+  const CANONICAL_ORIGIN = 'https://mashong.com';
 
   // --------------------------------------------------------------------------
-  // 2. Toast Notification Function
+  // Toast
   // --------------------------------------------------------------------------
   const toast = document.getElementById('toast');
-  const toastMsg = toast ? toast.querySelector('.toast-msg') : null;
-  let toastTimeout = null;
+  let toastTimer = null;
 
   function showToast(message) {
-    if (!toast || !toastMsg) return;
-    if (toastTimeout) clearTimeout(toastTimeout);
-    toastMsg.textContent = message;
+    if (!toast) return;
+    clearTimeout(toastTimer);
+    toast.textContent = message;
     toast.classList.add('show');
-    toastTimeout = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 2800);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
   }
 
   // --------------------------------------------------------------------------
-  // 3. Quick Actions: Share Page URL
+  // Share / copy URL
   // --------------------------------------------------------------------------
-  const shareCopyUrlBtn = document.getElementById('shareCopyUrlBtn');
-  if (shareCopyUrlBtn) {
-    shareCopyUrlBtn.addEventListener('click', () => {
-      const targetUrl = window.location.href.includes('localhost') ? 'https://mashong.com' : window.location.href;
-      navigator.clipboard.writeText(targetUrl).then(() => {
-        showToast('🔗 페이지 주소가 복사되었습니다!');
-      }).catch(() => {
-        showToast('주소: ' + targetUrl);
-      });
-    });
+  function pageUrl() {
+    const { hostname, pathname } = window.location;
+    const isLocal = hostname === 'localhost' || hostname === '127.0.0.1';
+    return isLocal ? CANONICAL_ORIGIN + pathname.replace(/\.html$/, '') : window.location.href;
   }
 
-  // Optional Email Copy if present
-  const copyEmailBtn = document.getElementById('copyEmailBtn');
-  if (copyEmailBtn) {
-    copyEmailBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText('contact@mashong.com').then(() => {
-        showToast('✨ 이메일 주소가 복사되었습니다!');
-      });
-    });
+  function fallbackCopy(text) {
+    const input = document.createElement('textarea');
+    input.value = text;
+    input.setAttribute('readonly', '');
+    input.style.position = 'fixed';
+    input.style.opacity = '0';
+    document.body.appendChild(input);
+    input.select();
+    let ok = false;
+    try {
+      ok = document.execCommand('copy');
+    } catch (e) {
+      ok = false;
+    }
+    document.body.removeChild(input);
+    return ok;
   }
 
+  async function copyUrl(url = pageUrl()) {
+    let ok = false;
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(url);
+        ok = true;
+      } catch (e) {
+        ok = fallbackCopy(url);
+      }
+    } else {
+      ok = fallbackCopy(url);
+    }
+    showToast(ok ? '🔗 페이지 주소가 복사되었습니다!' : '주소: ' + url);
+  }
+
+  async function share() {
+    const url = pageUrl();
+    const data = {
+      title: document.title,
+      text: document.querySelector('meta[name="description"]')?.content || document.title,
+      url,
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share(data);
+        return;
+      } catch (e) {
+        if (e.name === 'AbortError') return;
+      }
+    }
+    copyUrl(url);
+  }
+
+  document.querySelectorAll('[data-action="share"]').forEach((btn) => btn.addEventListener('click', share));
+  document.querySelectorAll('[data-action="copy-url"]').forEach((btn) => btn.addEventListener('click', () => copyUrl()));
+  document.querySelectorAll('[data-toast]').forEach((el) =>
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast(el.dataset.toast);
+    })
+  );
+
   // --------------------------------------------------------------------------
-  // 4. 3D Subtle Tilt Effect on Profile Card
+  // Live service status (served by worker.js at /api/status)
   // --------------------------------------------------------------------------
-  const card = document.getElementById('profileCard');
-  if (card && window.matchMedia('(hover: hover)').matches) {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      const rotateX = (-y / rect.height) * 3;
-      const rotateY = (x / rect.width) * 3;
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  const dots = document.querySelectorAll('[data-service]');
+  const summary = document.querySelector('[data-status-summary]');
+  if (!dots.length && !summary) return;
+
+  function render(services) {
+    dots.forEach((dot) => {
+      const ids = dot.dataset.service.split(',');
+      const known = ids.filter((id) => id in services);
+      if (!known.length) return;
+      const up = known.every((id) => services[id]);
+      dot.dataset.state = up ? 'up' : 'down';
+      dot.title = up ? '정상 운영 중' : '일시적으로 응답이 없습니다';
     });
 
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-    });
+    if (summary) {
+      const values = Object.values(services);
+      const upCount = values.filter(Boolean).length;
+      const allUp = upCount === values.length;
+      const label = summary.querySelector('[data-status-label]');
+      summary.dataset.state = allUp ? 'ok' : 'degraded';
+      if (label) {
+        label.textContent = allUp ? 'All Systems Normal' : `${upCount}/${values.length} Services Online`;
+      }
+    }
   }
-});
+
+  fetch('/api/status', { headers: { accept: 'application/json' } })
+    .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+    .then((body) => render(body.services || {}))
+    .catch(() => {
+      // Status endpoint unavailable (e.g. opened as a plain file): keep a neutral badge.
+      if (summary) {
+        summary.dataset.state = 'ok';
+        const label = summary.querySelector('[data-status-label]');
+        if (label) label.textContent = 'System Normal';
+      }
+    });
+})();
