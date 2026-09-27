@@ -13,6 +13,7 @@ const SERVICES = {
 const STATUS_TTL_SECONDS = 60;
 const CHECK_TIMEOUT_MS = 5000;
 
+// Returns the HTTP status of the service root, or 0 on network error / timeout.
 async function probe(url) {
   try {
     const res = await fetch(url, {
@@ -21,11 +22,16 @@ async function probe(url) {
       signal: AbortSignal.timeout(CHECK_TIMEOUT_MS),
       cf: { cacheTtl: 0 },
     });
-    // Anything below 500 means the service answered (redirects to login etc. count as up).
-    return res.status < 500;
+    return res.status;
   } catch {
-    return false;
+    return 0;
   }
+}
+
+// 2xx/3xx, or auth walls (401/403), mean the service answered. A 404 at the root
+// usually means a Cloudflare routing error (e.g. 1042), so it counts as down.
+function isUp(status) {
+  return (status >= 200 && status < 400) || status === 401 || status === 403;
 }
 
 async function handleStatus(request, ctx) {
@@ -37,10 +43,11 @@ async function handleStatus(request, ctx) {
   const entries = await Promise.all(
     Object.entries(SERVICES).map(async ([id, url]) => [id, await probe(url)])
   );
-  const services = Object.fromEntries(entries);
+  const codes = Object.fromEntries(entries);
+  const services = Object.fromEntries(entries.map(([id, status]) => [id, isUp(status)]));
 
   const response = new Response(
-    JSON.stringify({ checkedAt: new Date().toISOString(), services }),
+    JSON.stringify({ checkedAt: new Date().toISOString(), services, codes }),
     {
       headers: {
         'content-type': 'application/json; charset=utf-8',
