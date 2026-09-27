@@ -598,7 +598,7 @@ a {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Sub pages (성향 테스트 / 마숑월드)                                           */
+/* Sub pages (성향 테스트)                                           */
 /* -------------------------------------------------------------------------- */
 .world-container {
   width: 100%;
@@ -689,80 +689,6 @@ a {
   line-height: 1.25;
 }
 
-.world-cards-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-bottom: 28px;
-}
-
-.world-big-card {
-  display: block;
-  border-radius: var(--radius-item);
-  padding: 22px 24px;
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-  text-align: left;
-  background-color: var(--tone-bg);
-  border: 1px solid var(--tone-border);
-  transition: var(--transition);
-}
-
-.world-big-card:hover {
-  background-color: var(--tone-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
-}
-
-.card-top-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-  color: var(--tone-text);
-}
-
-.meta-index {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.meta-category {
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
-.card-headline-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.card-headline {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: var(--text-main);
-  letter-spacing: -0.01em;
-}
-
-.card-arrow-icon {
-  color: var(--tone-text);
-  transition: var(--transition);
-}
-
-.world-big-card:hover .card-arrow-icon {
-  transform: translate(3px, -3px);
-}
-
-.card-subtext {
-  font-size: 0.84rem;
-  color: var(--text-sub);
-}
-
 /* -------------------------------------------------------------------------- */
 /* 404                                                                        */
 /* -------------------------------------------------------------------------- */
@@ -836,10 +762,6 @@ a {
 
   .world-main-heading {
     font-size: 1.45rem;
-  }
-
-  .action-btn .label-optional {
-    display: none;
   }
 }
 
