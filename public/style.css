@@ -444,6 +444,23 @@ a {
   outline-color: var(--tone-accent);
 }
 
+/* Coming-soon card: not a link, no hover lift.
+   Dim the contents, not the card: .reveal's animation keeps the card at opacity 1. */
+.menu-card.is-coming {
+  cursor: default;
+}
+
+.menu-card.is-coming > * {
+  opacity: 0.55;
+}
+
+.menu-card.is-coming:hover,
+.menu-card.is-coming:active {
+  background-color: var(--tone-bg);
+  transform: none;
+  box-shadow: none;
+}
+
 .card-leading {
   display: flex;
   align-items: flex-start;
