@@ -49,7 +49,9 @@
     }
   }
 
-  media.addEventListener('change', () => mode === 'auto' && apply());
+  const onSystemChange = () => mode === 'auto' && apply();
+  if (media.addEventListener) media.addEventListener('change', onSystemChange);
+  else if (media.addListener) media.addListener(onSystemChange); // iOS Safari < 14
   apply();
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -62,7 +64,13 @@
       saveMode(mode);
       apply();
     });
-    document.body.appendChild(btn);
+    // Sit in the card's top-right corner (next to the profile image); fall back to the page corner.
+    const card = document.querySelector('.portal-card, .world-container');
+    if (card) card.appendChild(btn);
+    else {
+      btn.classList.add('is-floating');
+      document.body.appendChild(btn);
+    }
     apply();
   });
 })();
