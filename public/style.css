@@ -2,7 +2,7 @@
 /* MASHONG Design System — warm pastel, light & dark                          */
 /* -------------------------------------------------------------------------- */
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   --font-display: "Plus Jakarta Sans", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -74,63 +74,63 @@
     border-color 0.22s var(--ease), box-shadow 0.22s var(--ease), color 0.22s var(--ease);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-page: #13151b;
-    --bg-card: #1b1e26;
-    --bg-elevated: #232733;
+:root[data-theme="dark"] {
+  color-scheme: dark;
 
-    --text-main: #eceef5;
-    --text-body: #c3c8d6;
-    --text-sub: #9aa2b8;
-    --text-dim: #737b92;
+  --bg-page: #13151b;
+  --bg-card: #1b1e26;
+  --bg-elevated: #232733;
 
-    --lavender-bg: #25233a;
-    --lavender-hover: #2d2a47;
-    --lavender-border: #3a3658;
-    --lavender-text: #b8b2ec;
-    --lavender-accent: #aca4f5;
+  --text-main: #eceef5;
+  --text-body: #c3c8d6;
+  --text-sub: #9aa2b8;
+  --text-dim: #737b92;
 
-    --peach-bg: #2e2520;
-    --peach-hover: #382c25;
-    --peach-border: #4a3a2f;
-    --peach-text: #eab38b;
-    --peach-accent: #f0a56e;
+  --lavender-bg: #25233a;
+  --lavender-hover: #2d2a47;
+  --lavender-border: #3a3658;
+  --lavender-text: #b8b2ec;
+  --lavender-accent: #aca4f5;
 
-    --sky-bg: #1c2837;
-    --sky-hover: #213143;
-    --sky-border: #2d4460;
-    --sky-text: #9cc4ec;
-    --sky-accent: #7fb2f5;
+  --peach-bg: #2e2520;
+  --peach-hover: #382c25;
+  --peach-border: #4a3a2f;
+  --peach-text: #eab38b;
+  --peach-accent: #f0a56e;
 
-    --mint-bg: #1c2b24;
-    --mint-hover: #21342b;
-    --mint-border: #2d4a3c;
-    --mint-text: #9bd4b3;
-    --mint-accent: #6fd59a;
+  --sky-bg: #1c2837;
+  --sky-hover: #213143;
+  --sky-border: #2d4460;
+  --sky-text: #9cc4ec;
+  --sky-accent: #7fb2f5;
 
-    --acronym: #a5a0ff;
+  --mint-bg: #1c2b24;
+  --mint-hover: #21342b;
+  --mint-border: #2d4a3c;
+  --mint-text: #9bd4b3;
+  --mint-accent: #6fd59a;
 
-    --ok: #4ade80;
-    --ok-bg: #16281d;
-    --ok-border: #22472f;
-    --ok-text: #86efac;
-    --warn: #fbbf24;
-    --warn-bg: #2d2413;
-    --warn-border: #4d3b17;
-    --warn-text: #fcd34d;
-    --idle: #5f667a;
+  --acronym: #a5a0ff;
 
-    --border-subtle: #2b2f3b;
-    --focus-ring: #aca4f5;
+  --ok: #4ade80;
+  --ok-bg: #16281d;
+  --ok-border: #22472f;
+  --ok-text: #86efac;
+  --warn: #fbbf24;
+  --warn-bg: #2d2413;
+  --warn-border: #4d3b17;
+  --warn-text: #fcd34d;
+  --idle: #5f667a;
 
-    --glow-a: rgba(91, 80, 170, 0.28);
-    --glow-b: rgba(180, 110, 70, 0.14);
+  --border-subtle: #2b2f3b;
+  --focus-ring: #aca4f5;
 
-    --shadow-main: 0 20px 48px -16px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03);
-    --shadow-hover: 0 14px 30px -10px rgba(0, 0, 0, 0.55);
-    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4);
-  }
+  --glow-a: rgba(91, 80, 170, 0.28);
+  --glow-b: rgba(180, 110, 70, 0.14);
+
+  --shadow-main: 0 20px 48px -16px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03);
+  --shadow-hover: 0 14px 30px -10px rgba(0, 0, 0, 0.55);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 /* Base Reset */
@@ -780,6 +780,37 @@ a {
   .world-main-heading {
     font-size: 1.45rem;
   }
+}
+
+/* Theme toggle (auto → light → dark), injected by theme.js */
+.theme-toggle {
+  position: fixed;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-sub);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  background: var(--lavender-bg);
+  border-color: var(--lavender-border);
+  color: var(--lavender-accent);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
