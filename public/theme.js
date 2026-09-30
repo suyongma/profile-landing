@@ -3,7 +3,7 @@
 (() => {
   const KEY = 'mashong-theme';
   const MODES = ['auto', 'light', 'dark'];
-  const THEME_COLORS = { light: '#f8f7f4', dark: '#13151b' };
+  const THEME_COLORS = { light: '#f8f7f4', dark: '#161b27' };
   const LABELS = { auto: '자동 (시스템 설정)', light: '라이트 모드', dark: '다크 모드' };
   const ICONS = {
     auto: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>',

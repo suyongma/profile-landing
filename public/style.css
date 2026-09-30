@@ -7,10 +7,19 @@
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   --font-display: "Plus Jakarta Sans", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
 
+  /* Brand — Modular Grid (원본: /Volumes/T7/AI/projects/mashong-brand/tokens.css) */
+  --mashong-primary: #0F766E;
+  --mashong-secondary: #84CC16;
+  --mashong-text: #09090B;
+  --mashong-accent-dev: #84CC16;
+  --mashong-accent-mapt: #06B6D4;
+  --mashong-accent-shop: #F97316;
+  --mashong-accent-world: #8B5CF6;
+
   /* Surfaces */
   --bg-page: #f8f7f4;
-  --bg-card: #ffffff;
-  --bg-elevated: #ffffff;
+  --bg-card: #fefdf9;
+  --bg-elevated: #fefdf9;
 
   /* Typography */
   --text-main: #2b354f;
@@ -23,7 +32,7 @@
   --lavender-hover: #e5e1f5;
   --lavender-border: #dcd7ea;
   --lavender-text: #5d5885;
-  --lavender-accent: #6b63b5;
+  --lavender-accent: #7564ad;
 
   --peach-bg: #fcf1e8;
   --peach-hover: #f7e7dc;
@@ -77,9 +86,12 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --bg-page: #13151b;
-  --bg-card: #1b1e26;
-  --bg-elevated: #232733;
+  --mashong-primary: #14B8A6;
+  --mashong-text: #F4F4F5;
+
+  --bg-page: #161b27;
+  --bg-card: #222a39;
+  --bg-elevated: #2a3345;
 
   --text-main: #eceef5;
   --text-body: #c3c8d6;
@@ -90,7 +102,7 @@
   --lavender-hover: #2d2a47;
   --lavender-border: #3a3658;
   --lavender-text: #b8b2ec;
-  --lavender-accent: #aca4f5;
+  --lavender-accent: #baa7ee;
 
   --peach-bg: #2e2520;
   --peach-hover: #382c25;
@@ -122,7 +134,7 @@
   --warn-text: #fcd34d;
   --idle: #5f667a;
 
-  --border-subtle: #2b2f3b;
+  --border-subtle: #333b4d;
   --focus-ring: #aca4f5;
 
   --glow-a: rgba(91, 80, 170, 0.28);
@@ -240,57 +252,46 @@ a {
   margin-bottom: 24px;
 }
 
-.profile-avatar-wrap {
-  position: relative;
-  width: 104px;
-  height: 104px;
-  margin: 0 auto 16px;
-  border-radius: 50%;
-  padding: 4px;
-  background: conic-gradient(from 210deg, #cfc8f3, #f6d4bd, #bfdcf5, #cde9d8, #cfc8f3);
-  box-shadow: 0 8px 24px -6px rgba(43, 53, 79, 0.18);
-  transition: var(--transition);
+/* Brand logo — Modular Grid (vertical) */
+.brand-logo {
+  margin: 4px auto 6px;
+  line-height: 0;
 }
 
-.profile-avatar-wrap:hover {
-  transform: translateY(-2px) scale(1.02);
-}
-
-.profile-avatar {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: 50% 18%;
+.mashong-logo {
   display: block;
-  background: var(--bg-card);
-  border: 3px solid var(--bg-card);
+  width: 168px;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
 }
 
-.avatar-badge {
-  position: absolute;
-  bottom: 2px;
-  right: 2px;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #10b981;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2.5px solid var(--bg-card);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+.mashong-logo-pillar { fill: var(--mashong-primary); }
+.mashong-float-block {
+  fill: var(--mashong-secondary);
+  transition: transform 0.3s var(--ease);
 }
 
-.brand-title {
+.mashong-logo-word {
+  fill: var(--mashong-text);
   font-family: var(--font-display);
-  font-size: 1.55rem;
+  font-size: 26px;
   font-weight: 800;
-  letter-spacing: 0.14em;
-  margin-right: -0.14em; /* optically center tracked text */
-  color: var(--text-main);
-  margin-bottom: 2px;
+  letter-spacing: 3px;
+}
+
+@keyframes mashong-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.mashong-float { animation: mashong-float 2.4s ease-in-out infinite; }
+.mashong-logo:hover .mashong-float { animation: none; }
+.mashong-logo:hover .mashong-float-block { transform: translateY(-6px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mashong-float { animation: none; }
+  .mashong-float-block { transition: none; }
 }
 
 .brand-subtitle {
