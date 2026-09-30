@@ -252,17 +252,68 @@ a {
   margin-bottom: 24px;
 }
 
-/* Brand logo — Modular Grid (vertical) */
-.brand-logo {
-  margin: 4px auto 6px;
-  line-height: 0;
+.profile-avatar-wrap {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  padding: 4px;
+  background: conic-gradient(from 210deg, #cfc8f3, #f6d4bd, #bfdcf5, #cde9d8, #cfc8f3);
+  box-shadow: 0 8px 24px -6px rgba(43, 53, 79, 0.18);
+  transition: var(--transition);
 }
 
-.mashong-logo {
+.profile-avatar-wrap:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 18%;
   display: block;
-  width: 168px;
-  height: auto;
-  margin: 0 auto;
+  background: var(--bg-card);
+  border: 3px solid var(--bg-card);
+}
+
+.avatar-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #10b981;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.5px solid var(--bg-card);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-right: -0.14em; /* optically center tracked text */
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+/* Brand symbol — Modular Grid, top-left corner (mirrors the theme toggle) */
+.brand-symbol {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  display: block;
   overflow: visible;
 }
 
@@ -272,22 +323,14 @@ a {
   transition: transform 0.3s var(--ease);
 }
 
-.mashong-logo-word {
-  fill: var(--mashong-text);
-  font-family: var(--font-display);
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: 3px;
-}
-
 @keyframes mashong-float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
 }
 
 .mashong-float { animation: mashong-float 2.4s ease-in-out infinite; }
-.mashong-logo:hover .mashong-float { animation: none; }
-.mashong-logo:hover .mashong-float-block { transform: translateY(-6px); }
+.brand-symbol:hover .mashong-float { animation: none; }
+.brand-symbol:hover .mashong-float-block { transform: translateY(-6px); }
 
 @media (prefers-reduced-motion: reduce) {
   .mashong-float { animation: none; }
