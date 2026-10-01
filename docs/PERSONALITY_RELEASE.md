@@ -1,4 +1,4 @@
-# 성향 테스트 회원 결과 연동 — 구현·검증 및 릴리스 순서
+# 성향 테스트 회원 결과 연동 — 운영 릴리스 기록
 
 ## 구현 상태
 
@@ -10,12 +10,9 @@
 
 ## Auth 변경
 
-원본 저장소: `suyongma/mashong-zombie-run`. 원격 main `18a9b41edc539b859a713e97f40f204496156028`에서 별도 체크아웃을 만들어 적용했다. 변경 브랜치는 로컬 `codex/personality-api`이며 기존 월드 체크아웃은 수정하지 않았다. Auth 원격 푸시는 자동 승인 검토에서 목적지 공개 권한 확인을 요구해 보류되었다.
+원본 저장소: `suyongma/mashong-zombie-run`. `18a9b41` 기반의 격리된 검토 커밋 `5cf6460`을 P1이 검증하고 [Auth PR #2](https://github.com/suyongma/mashong-zombie-run/pull/2)로 반영했다. 사용자 명시 승인 후 원격 main `7e6e4b78bd2875a7a55a70b7eac2a37e6fdda0d9`에서 배포했다. 기존 월드 작업과 운영 설정을 덮어쓰지 않았다.
 
-로컬 검토 경로: `/private/tmp/mashong-auth-personality-20261001`. 재적용 가능한 패치: `/private/tmp/mashong-auth-personality-20261001.patch`.
-APFS 복원 후 임시 폴더 정리에 대비해 프로젝트의 Git 제외 경로 `.local-recovery/auth-personality-20261001.patch`에도 보존했다.
-패치 SHA-256은 `d360abf96b67057b41717d43d5ac9d5b9156bc5363282dc2806a8b4fb605c8c1`이며 두 사본이 일치한다.
-이 로컬 보존은 원격 공개 승인과 별도다. Auth 푸시·DB migration·운영 배포는 계속 승인 대기다.
+초기 검토 패치는 Git 제외 경로 `.local-recovery/auth-personality-20261001.patch`에 보존했다. SHA-256은 `d360abf96b67057b41717d43d5ac9d5b9156bc5363282dc2806a8b4fb605c8c1`이다. 이 파일은 과거 검토 사본이며 현재 운영 소스의 정본은 Auth 저장소의 원격 main이다.
 
 - `auth-service/src/personality.mjs`, `personality.d.mts`, `scoring.mjs` 추가.
 - `auth-service/migrations/0003_personality.sql` 추가. 기존 players.id는 TEXT이며 새 레코드의 FK가 이를 참조한다.
@@ -35,14 +32,35 @@ APFS 복원 후 임시 폴더 정리에 대비해 프로젝트의 Git 제외 경
 
 실계정 운영 통합 검증은 아직 하지 않았다. 제공받은 세 검사 프로젝트의 이전 166개 검증과 이번 검증은 별도이며 중복 합산하지 않는다.
 
-## 승인 후 릴리스
+## 운영 적용 — 2026-10-02 KST
 
-이번 변경은 구현·검증 단계다. 기존 UI 작업에 대한 메인 배포 요청을 Auth DB 변경이나 세 검사 신규 배포 승인으로 확대하지 않는다. 운영 DB migration, Auth 배포, 이번 메인 배포, 세 검사 배포는 실행하지 않았다.
+사용자가 보류 기능 운영 반영을 요청하고 P1의 규칙에 따른 조율을 지시했다. Auth 소스의 대상 GitHub 브랜치 푸시·main 병합·운영 적용은 P1 대화에서 명시 승인됐다. 담당과 순서는 Auth(P1) → 메인(P99) → STRI/IPIP/IPC(P5)다. 운영 배포는 각 원격 main 기준이며 다른 담당의 저장소나 Worker를 중복 배포하지 않는다.
 
-1. Auth PR을 최신 main과 재검토/통합하고 pending migration을 확인한다. 새 테이블 migration이 다른 변경과 충돌하지 않는지 확인한다.
-2. 기존 공통 DB `mashong-zombie-run-db`에 0003_personality migration을 적용하고 Auth Worker를 먼저 배포한다. auth-service/wrangler.json을 사용하며 새 DB나 secret은 만들지 않는다.
-3. 메인 결과 표시 변경을 통합·배포한다. HTML과 CSS/JS v8 운영 반영을 확인한다.
-4. 성향테스트의 STRI·IPIP·IPC 개발 변경을 각 저장소의 기존 배포 경로로 릴리스한다. 해당 원본 작업 공간의 변경은 이 작업에서 커밋하거나 배포하지 않았다.
-5. 실계정 A/B와 비회원으로 Auth→메인→세 검사 저장/복원·완료·재검사·로그아웃을 검증한다. World/PT 기존 SSO도 확인한다.
+| 대상 | 적용 상태 | 릴리스 기준 |
+|---|---|---|
+| Auth API·D1 | 완료 | main `7e6e4b78bd2875a7a55a70b7eac2a37e6fdda0d9`, Worker `c141d571-196f-49bd-b08a-84c3709acb52` |
+| 메인 결과 표시 | 완료 | [PR #1](https://github.com/suyongma/profile-landing/pull/1), main `6d209bea8922d1258a1ece2adc53e819336d61e2`, Worker `b43570ab-359f-479d-8217-fb9500a47e96` |
+| STRI | 완료 | main `45e1987505e84032c6ea7be90cb87bf5953539ec`, Pages `f8ffe6a6-52c1-4009-8776-72468842ed14` |
+| IPIP | 완료 | main `db694058d9b8ecf6ee96a4308886b55f981e65e0`, Pages `33d865de-a363-4143-8063-c68566307100` |
+| IPC | 완료 | main `a3b2c6cfcd98f46a4f6c65f6817f05c365b7e7c4`, Pages `66dbec55-269b-4081-88f5-09842776b0d7` |
 
-Auth API가 아직 배포되지 않은 상태에서 메인 결과 기능만 먼저 배포하면 결과 조회 실패로 표시된다. 운영에서 회원 저장이 이미 작동한다고 보고하지 않는다.
+P1은 기존 D1 export·로컬 무결성 검증 후 새 `0003_personality.sql`의 테이블과 적용 기록만 추가했다. 기존 Auth 0001/0002 migration은 재실행하지 않았고 기존 회원·게임 데이터를 수정하지 않았다. quick_check 정상, 외래키 위반 없음, 신규 결과 테이블 0행을 확인했다. 새 회원·운영 결과·실제 메시지를 테스트 목적으로 생성하지 않았다.
+
+메인은 css/theme/app 캐시 v8과 `/tests` 전용 personality-results.js v8의 운영 반영을 확인했다. 공통 JS/폰트 및 홈 440px 배치는 유지한다.
+
+### 운영 검증 범위
+
+- P1: Auth 기존 회귀 101개·성향 API 7개, 타입·월드 refined 빌드·Auth dry-run 통과. 운영 API·CORS·비회원 쓰기 거부·World/PT 로그인 이동 21개 및 DB 무결성 확인.
+- P99: 새 Auth API의 실제 비로그인 GET·정확한 CORS·no-store·PUT preflight·기존 /api/me 제한·localhost/main 쓰기 차단 20개 통과.
+- 메인: `npm run check:operations` PASS 339, FAIL 0. 운영 정적 파일 111개가 원격 main과 일치하고 공통 manifest 97개도 일치한다. 5개 서비스 연결과 canonical 리디렉션·404·기존 Auth 경계 정상.
+- 실제 운영 브라우저: 홈과 `/tests`의 320/390/1280px × light/dark 12조합에서 가로 넘침·계정/테마 버튼 겹침·JavaScript 오류 없음. 비회원 로그인 안내와 홈 PC 440px 배치 확인.
+
+- P5: 세 검사 Git 자동배포와 최종 CI 성공. 실제 운영 비회원 E2E STRI 46개·IPIP 12개·IPC 12개, 합계 70개 통과. STRI의 Auth 확인 후 키보드 초점과 모바일 선택지 가림을 추가 보완해 단위 50개·로컬 E2E 49개·운영 46개를 통과했다. 공통 JS·CSP·API·CORS·no-store 확인. 세 검사 상세 기록은 `/Volumes/T7/AI/projects/성향테스트/PERSONALITY_RELEASE_2026-10-02.md`와 각 저장소 `docs/deployment.md`를 따른다.
+
+실회원의 저장·복원·완료·재검사·계정 A/B 전환 및 전체 로그아웃은 아직 운영 계정으로 검증하지 않았다. 로컬 합성 계정·API 모의 응답 검증과 운영 비회원 점검을 실회원 검증으로 간주하지 않는다. 실제 사용자 비밀번호·세션을 로그에 남기거나 테스트 결과를 기존 회원 계정에 임의 기록하지 않는다.
+
+### 다음 변경과 롤백
+
+Auth API/스키마를 먼저 준비하고 메인, 세 검사 순서로 릴리스한다. Auth는 마숑월드 `auth-service/README.md`와 P1 운영 기록 `docs/operations/personality-auth-release-20261002.md`를 따른다. 운영 DB 전체 복원이나 기존 세션 일괄 폐기를 일반 롤백으로 사용하지 않는다.
+
+이번 메인 적용 전 정상 Worker 버전은 `2df4e8df-aab8-40c3-a908-14b00b76da38`이다. 메인 코드만 되돌리는 경우 중앙 Auth·월드·마PT를 함께 변경하지 않는다. 후속 문서 커밋이 main에 추가될 수 있으므로 운영 소스 바이트 확인은 `npm run check:operations`로 한다.

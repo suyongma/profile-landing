@@ -85,13 +85,14 @@ wrangler.json
 - 서비스 링크(마숑월드·마PT·테스트들)는 같은 탭에서 연다 (`target="_blank"` 쓰지 않음).
 - "뭐 사지?"는 준비중 카드(링크 없음). `/api/status`에서도 제외돼 있다.
 
-## 성향 테스트 회원 결과 (구현·검증, 운영 적용 전)
+## 성향 테스트 회원 결과 (2026-10-02 운영 반영)
 
 - `/tests`만 `personality-results.js`를 로드한다. 조회는 Auth `/api/personality`, credentials 포함·no-store.
 - 완료 결과는 `나의 마지막 결과`와 결과명, 완료 결과가 없으면 정확히 `아직 미검사`로 표시한다.
 - 조회 실패는 미검사/비회원으로 간주하지 않는다. 계정 전환 시 이전 결과와 오래된 응답을 제거한다.
 - 검증: `npm test`. 릴리스 상태와 순서는 `docs/PERSONALITY_RELEASE.md`를 확인한다.
-- Auth migration/API → 메인 → 세 검사 순서로 승인 후 적용한다. 현재 기능은 운영 배포 전이다.
+- 운영 순서는 P1 Auth migration/API → P99 메인 → P5 세 검사다. Auth·메인·세 검사는 2026-10-02 운영 반영과 비회원 검증을 완료했다.
+- Auth 배포는 마숑월드 `auth-service/README.md`의 원격 main 배포 규칙을 따르며 P1과 조율한다.
 
 ## 남은 확인 항목 (사용자 실계정·실기기)
 
@@ -108,6 +109,6 @@ wrangler.json
 - T7은 2026-10-01 APFS로 포맷·복원됐다. 현재 경로는 `/Volumes/T7/AI/projects/마숑메인`이다.
   과거 `/Volumes/T7/gpt/...` 경로를 새 세션에서 사용하지 않는다. APFS 점검 기록은
   `docs/APFS_RECOVERY_2026-10-01.md`를 참고한다. exFAT 관련 Git 오류는 현재 재현되지 않는다.
-- `.local-recovery/`는 로컬 런타임·미승인 Auth 패치 보존용이며 Git/배포 대상이 아니다.
-  성향 테스트 회원 결과 작업은 `codex/personality-results` / PR #1에서 유지한다.
+- `.local-recovery/`는 로컬 런타임·이전 Auth 검토 패치 보존용이며 Git/배포 대상이 아니다.
+  성향 테스트 회원 결과 PR #1은 main에 병합됐다. 현재 운영 상태는 `docs/PERSONALITY_RELEASE.md`를 따른다.
 - `push_to_github.ps1`은 예전 Windows 환경용 스크립트로 현재 사용하지 않는다.
