@@ -21,14 +21,17 @@
   <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=3">
 
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
 
-  <link rel="stylesheet" href="style.css?v=4">
-  <script src="/theme.js?v=4"></script>
+  <!-- Shared MASHONG theme: sync, before CSS, so the first paint uses the right theme -->
+  <script src="/shared/mashong-theme.js?v=1"></script>
+  <link rel="stylesheet" href="/fonts/pretendard.css">
+  <script src="/shared/mashong-account.js?v=1.1" defer></script>
+  <script src="/shared/mashong-main.js?v=1" defer></script>
+  <link rel="stylesheet" href="style.css?v=5">
+  <script src="/theme.js?v=5" defer></script>
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8560052678270280"
@@ -48,14 +51,14 @@
           </svg>
           <span>MASHONG</span>
         </a>
-        <div class="nav-actions">
+        <div class="nav-actions" data-theme-slot>
           <button class="action-btn icon-only" data-action="copy-url" type="button" aria-label="URL 복사" title="URL 복사">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
           </button>
-          <button class="action-btn" data-action="share" type="button">
+          <button class="action-btn" data-action="share" type="button" aria-label="공유">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <circle cx="18" cy="5" r="3"></circle>
               <circle cx="6" cy="12" r="3"></circle>
@@ -65,8 +68,10 @@
             </svg>
             <span>공유</span>
           </button>
+          <mashong-account id="mashong-account"></mashong-account>
         </div>
       </header>
+      <p id="mashong-auth-status" class="auth-status" role="status" aria-live="polite"></p>
 
       <!-- Headline -->
       <section class="world-hero lavender reveal" style="--i:1">
@@ -149,6 +154,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=4" defer></script>
+  <script src="app.js?v=5" defer></script>
 </body>
 </html>

@@ -305,15 +305,12 @@ a {
   margin-bottom: 2px;
 }
 
-/* Brand symbol — Modular Grid, top-left corner (mirrors the theme toggle) */
+/* Brand symbol — Modular Grid, left end of the card top bar */
 .brand-symbol {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 2;
   width: 36px;
   height: 36px;
   display: block;
+  flex: none;
   overflow: visible;
 }
 
@@ -826,19 +823,52 @@ a {
   }
 }
 
-/* Theme toggle (auto → light → dark), injected by theme.js into the card corner */
+/* -------------------------------------------------------------------------- */
+/* Card top bar: brand symbol · theme toggle · shared MASHONG account button   */
+/* -------------------------------------------------------------------------- */
 .portal-card,
 .world-container {
   position: relative;
 }
 
+.card-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: -20px -12px 8px;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Shown only when the account adapter has something to say (e.g. status check failed). */
+.auth-status {
+  margin: -2px 0 14px;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: var(--warn-text);
+  text-align: right;
+}
+
+.world-top-nav + .auth-status {
+  margin-top: -18px;
+}
+
+.auth-status:empty {
+  display: none;
+}
+
+/* Theme toggle (auto → light → dark), created by theme.js */
 .theme-toggle {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  z-index: 2;
-  width: 36px;
-  height: 36px;
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -854,10 +884,30 @@ a {
   transition: var(--transition);
 }
 
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.nav-actions .theme-toggle {
+  width: 34px;
+  height: 34px;
+}
+
+.theme-toggle.is-corner {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+}
+
 .theme-toggle.is-floating {
   position: fixed;
   top: max(14px, env(safe-area-inset-top));
   right: max(14px, env(safe-area-inset-right));
+  z-index: 10;
 }
 
 @media (hover: hover) {
@@ -871,6 +921,76 @@ a {
 
 .theme-toggle:active {
   transform: translateY(0);
+}
+
+/* Mobile header: 32px controls with 16px icons, ~44px tall tap area (matches mashong-account v1.1) */
+@media (max-width: 760px) {
+  .theme-toggle,
+  .nav-actions .theme-toggle,
+  .nav-actions .action-btn {
+    min-height: 32px;
+    height: 32px;
+  }
+
+  .theme-toggle,
+  .nav-actions .theme-toggle,
+  .nav-actions .action-btn.icon-only {
+    width: 32px;
+  }
+
+  .theme-toggle::after,
+  .nav-actions .action-btn::after {
+    content: "";
+    position: absolute;
+    inset: -6px 0;
+  }
+
+  .nav-actions .action-btn {
+    position: relative;
+  }
+
+  .nav-actions .action-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .brand-symbol {
+    width: 32px;
+    height: 32px;
+  }
+
+  .card-actions,
+  .nav-actions {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-topbar {
+    margin: -14px -6px 6px;
+  }
+
+  /* Keep the sub-page header on one line next to the account button. */
+  .world-top-nav > .action-btn span,
+  .nav-actions .action-btn span {
+    display: none;
+  }
+
+  .world-top-nav > .action-btn,
+  .nav-actions .action-btn {
+    flex: none;
+    width: 32px;
+    min-height: 32px;
+    height: 32px;
+    padding: 0;
+  }
+}
+
+/* Narrow phones: the share sheet already offers "copy link". */
+@media (max-width: 400px) {
+  .nav-actions [data-action="copy-url"] {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

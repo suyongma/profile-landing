@@ -25,14 +25,17 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=3">
 
   <!-- Fonts: Pretendard (Korean) + Plus Jakarta Sans (Latin display) -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
 
-  <link rel="stylesheet" href="style.css?v=4">
-  <script src="/theme.js?v=4"></script>
+  <!-- Shared MASHONG theme: sync, before CSS, so the first paint uses the right theme -->
+  <script src="/shared/mashong-theme.js?v=1"></script>
+  <link rel="stylesheet" href="/fonts/pretendard.css">
+  <script src="/shared/mashong-account.js?v=1.1" defer></script>
+  <script src="/shared/mashong-main.js?v=1" defer></script>
+  <link rel="stylesheet" href="style.css?v=5">
+  <script src="/theme.js?v=5" defer></script>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -54,15 +57,22 @@
 
   <div class="page-wrapper">
     <main class="portal-card">
-      <!-- Brand symbol (Modular Grid). 원본: /Volumes/T7/AI/projects/mashong-brand -->
-      <svg class="brand-symbol" viewBox="14 12 72 72" role="img" aria-label="MASHONG 심볼">
-        <rect class="mashong-logo-pillar" x="20" y="28" width="16" height="48" rx="3.5"/>
-        <rect class="mashong-logo-pillar" x="42" y="44" width="16" height="32" rx="3.5"/>
-        <rect class="mashong-logo-pillar" x="64" y="44" width="16" height="32" rx="3.5"/>
-        <g class="mashong-float">
-          <rect class="mashong-float-block" x="64" y="20" width="16" height="16" rx="3.5"/>
-        </g>
-      </svg>
+      <!-- Card top bar: brand symbol · theme toggle (theme.js) · MASHONG account -->
+      <div class="card-topbar">
+        <!-- Brand symbol (Modular Grid). 원본: /Volumes/T7/AI/projects/mashong-brand -->
+        <svg class="brand-symbol" viewBox="14 12 72 72" role="img" aria-label="MASHONG 심볼">
+          <rect class="mashong-logo-pillar" x="20" y="28" width="16" height="48" rx="3.5"/>
+          <rect class="mashong-logo-pillar" x="42" y="44" width="16" height="32" rx="3.5"/>
+          <rect class="mashong-logo-pillar" x="64" y="44" width="16" height="32" rx="3.5"/>
+          <g class="mashong-float">
+            <rect class="mashong-float-block" x="64" y="20" width="16" height="16" rx="3.5"/>
+          </g>
+        </svg>
+        <div class="card-actions" data-theme-slot>
+          <mashong-account id="mashong-account"></mashong-account>
+        </div>
+      </div>
+      <p id="mashong-auth-status" class="auth-status" role="status" aria-live="polite"></p>
 
       <!-- Profile Avatar & Brand Header -->
       <section class="profile-hero reveal" style="--i:0">
@@ -191,6 +201,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=4" defer></script>
+  <script src="app.js?v=5" defer></script>
 </body>
 </html>
