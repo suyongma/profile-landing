@@ -12,7 +12,10 @@
 
 원본 저장소: `suyongma/mashong-zombie-run`. 원격 main `18a9b41edc539b859a713e97f40f204496156028`에서 별도 체크아웃을 만들어 적용했다. 변경 브랜치는 로컬 `codex/personality-api`이며 기존 월드 체크아웃은 수정하지 않았다. Auth 원격 푸시는 자동 승인 검토에서 목적지 공개 권한 확인을 요구해 보류되었다.
 
-로컬 검토 경로: `/private/tmp/mashong-auth-personality-20261001`. 재적용 가능한 패치: `/private/tmp/mashong-auth-personality-20261001.patch`. 이 경로는 임시 폴더이므로 승인 후 Auth 원격 브랜치로 보존해야 한다.
+로컬 검토 경로: `/private/tmp/mashong-auth-personality-20261001`. 재적용 가능한 패치: `/private/tmp/mashong-auth-personality-20261001.patch`.
+APFS 복원 후 임시 폴더 정리에 대비해 프로젝트의 Git 제외 경로 `.local-recovery/auth-personality-20261001.patch`에도 보존했다.
+패치 SHA-256은 `d360abf96b67057b41717d43d5ac9d5b9156bc5363282dc2806a8b4fb605c8c1`이며 두 사본이 일치한다.
+이 로컬 보존은 원격 공개 승인과 별도다. Auth 푸시·DB migration·운영 배포는 계속 승인 대기다.
 
 - `auth-service/src/personality.mjs`, `personality.d.mts`, `scoring.mjs` 추가.
 - `auth-service/migrations/0003_personality.sql` 추가. 기존 players.id는 TEXT이며 새 레코드의 FK가 이를 참조한다.
