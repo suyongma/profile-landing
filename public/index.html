@@ -24,15 +24,18 @@
   <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=3">
 
-  <!-- Shared Pretendard typography -->
+  <!-- Fonts: Pretendard (Korean) + Plus Jakarta Sans (Latin display) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
 
   <!-- Shared MASHONG theme: sync, before CSS, so the first paint uses the right theme -->
   <script src="/shared/mashong-theme.js?v=1"></script>
   <link rel="stylesheet" href="/fonts/pretendard.css">
   <script src="/shared/mashong-account.js?v=1.1" defer></script>
   <script src="/shared/mashong-main.js?v=1" defer></script>
-  <link rel="stylesheet" href="style.css?v=6">
-  <script src="/theme.js?v=6" defer></script>
+  <link rel="stylesheet" href="style.css?v=7">
+  <script src="/theme.js?v=7" defer></script>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -55,8 +58,7 @@
   <div class="page-wrapper">
     <main class="portal-card">
       <!-- Card top bar: brand symbol · theme toggle (theme.js) · MASHONG account -->
-      <header class="card-topbar">
-        <a class="site-brand" href="/" aria-label="마숑 메인">
+      <div class="card-topbar">
         <!-- Brand symbol (Modular Grid). 원본: /Volumes/T7/AI/projects/mashong-brand -->
         <svg class="brand-symbol" viewBox="14 12 72 72" role="img" aria-label="MASHONG 심볼">
           <rect class="mashong-logo-pillar" x="20" y="28" width="16" height="48" rx="3.5"/>
@@ -66,12 +68,10 @@
             <rect class="mashong-float-block" x="64" y="20" width="16" height="16" rx="3.5"/>
           </g>
         </svg>
-          <span class="site-brand-name">MASHONG<small>마숑 메인</small></span>
-        </a>
         <div class="card-actions" data-theme-slot>
           <mashong-account id="mashong-account"></mashong-account>
         </div>
-      </header>
+      </div>
       <p id="mashong-auth-status" class="auth-status" role="status" aria-live="polite"></p>
 
       <!-- Profile Avatar & Brand Header -->
@@ -85,27 +85,24 @@
           </div>
         </div>
 
-        <div class="hero-copy">
-          <p class="world-subtitle-tag">MASHONG PORTAL</p>
-          <h1 class="brand-title">MASHONG</h1>
-          <p class="brand-subtitle">나를 알아가고, 즐기고, 새로운 생각을 나누는 공간.</p>
+        <h1 class="brand-title">MASHONG</h1>
+        <p class="brand-subtitle">mashong.com</p>
 
-          <div class="hero-badge-group">
-            <div class="live-status" data-status-summary data-state="checking" role="status" aria-live="polite">
-              <span class="status-indicator" aria-hidden="true"></span>
-              <span data-status-label>Checking…</span>
-            </div>
-            <button class="share-btn" data-action="share" type="button">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-                <circle cx="18" cy="5" r="3"></circle>
-                <circle cx="6" cy="12" r="3"></circle>
-                <circle cx="18" cy="19" r="3"></circle>
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-              </svg>
-              <span>공유하기</span>
-            </button>
+        <div class="hero-badge-group">
+          <div class="live-status" data-status-summary data-state="checking" role="status" aria-live="polite">
+            <span class="status-indicator" aria-hidden="true"></span>
+            <span data-status-label>Checking…</span>
           </div>
+          <button class="share-btn" data-action="share" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <span>공유하기</span>
+          </button>
         </div>
       </section>
 
@@ -129,7 +126,6 @@
             </div>
           </div>
           <span class="card-arrow" aria-hidden="true">
-            <span class="card-link-label">서비스 열기</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
           </span>
         </a>
@@ -150,7 +146,6 @@
             </div>
           </div>
           <span class="card-arrow" aria-hidden="true">
-            <span class="card-link-label">서비스 열기</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
           </span>
         </a>
@@ -170,7 +165,6 @@
             </div>
           </div>
           <span class="card-arrow" aria-hidden="true">
-            <span class="card-link-label">서비스 열기</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
           </span>
         </a>
@@ -198,7 +192,7 @@
       <!-- Footer -->
       <footer class="portal-footer reveal" style="--i:6">
         <p class="copyright">© 2026 MASHONG. All rights reserved.</p>
-        <p class="meta-tag">mashong.com</p>
+        <p class="meta-tag">Cloudflare Edge Architecture • mashong.com</p>
         <p class="footer-email">e-mail 문의: <a href="mailto:mso0504@naver.com">mso0504@naver.com</a></p>
       </footer>
 
@@ -207,6 +201,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=6" defer></script>
+  <script src="app.js?v=7" defer></script>
 </body>
 </html>
