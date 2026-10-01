@@ -33,6 +33,8 @@ wrangler.json
 
 - Node 22 (`.node-version`). 빌드 단계 없음 (`npm run build`는 echo).
 - 로컬: `npx wrangler dev --port 8787` → http://localhost:8787
+- 로컬 단축 명령: `npm run dev`. 운영 읽기 전용 점검: `npm run check:operations`.
+  점검 기준은 `origin/main`이므로 먼저 `git fetch`한다. 특정 릴리스는 `-- --ref=<커밋>`으로 지정한다.
 - 배포: `npm run deploy` (= `wrangler deploy`). 배포는 사용자가 요청할 때만 한다.
 - 작업 순서: `git fetch` → 변경 → 로컬 확인 → 커밋/푸시 → (요청 시) 배포 → `curl`로 운영 반영 확인.
 - 다른 세션·도구가 같은 저장소를 수정하므로 작업 전 항상 `git fetch`로 원격 커밋을 확인한다.
@@ -94,6 +96,9 @@ wrangler.json
 
 - 공통 `mashong-theme.js`는 `matchMedia().addEventListener`만 사용 → iOS Safari 14 미만에서 오류 가능.
   공통 파일이므로 마숑월드 원본에서 고쳐야 한다.
-- 외장 드라이브(exFAT)라 macOS `._*` 파일이 생긴다. `git`의 `non-monotonic index .git/objects/pack/._pack-*.idx`
-  오류는 무해한 노이즈이며 `find .git -name '._*' -delete`로 정리할 수 있다.
+- T7은 2026-10-01 APFS로 포맷·복원됐다. 현재 경로는 `/Volumes/T7/AI/projects/마숑메인`이다.
+  과거 `/Volumes/T7/gpt/...` 경로를 새 세션에서 사용하지 않는다. APFS 점검 기록은
+  `docs/APFS_RECOVERY_2026-10-01.md`를 참고한다. exFAT 관련 Git 오류는 현재 재현되지 않는다.
+- `.local-recovery/`는 로컬 런타임·미승인 Auth 패치 보존용이며 Git/배포 대상이 아니다.
+  성향 테스트 회원 결과 작업은 `codex/personality-results` / PR #1에서 유지한다.
 - `push_to_github.ps1`은 예전 Windows 환경용 스크립트로 현재 사용하지 않는다.
