@@ -6,8 +6,8 @@
   <title>성향 테스트 | MASHONG TEST</title>
   <meta name="description" content="마숑 성향 테스트 - STRI 눈치·센스 유형 테스트, IPIP 성격검사 및 IPC 대인관계 성향 테스트">
   <link rel="canonical" href="https://mashong.com/tests">
-  <meta name="theme-color" content="#f8f7f4" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#161b27" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f8f4f0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171c28" media="(prefers-color-scheme: dark)">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="MASHONG">
@@ -21,17 +21,13 @@
   <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=3">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
-
   <!-- Shared MASHONG theme: sync, before CSS, so the first paint uses the right theme -->
   <script src="/shared/mashong-theme.js?v=1"></script>
   <link rel="stylesheet" href="/fonts/pretendard.css">
   <script src="/shared/mashong-account.js?v=1.1" defer></script>
   <script src="/shared/mashong-main.js?v=1" defer></script>
-  <link rel="stylesheet" href="style.css?v=5">
-  <script src="/theme.js?v=5" defer></script>
+  <link rel="stylesheet" href="style.css?v=6">
+  <script src="/theme.js?v=6" defer></script>
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8560052678270280"
@@ -41,15 +37,20 @@
   <div class="ambient-glow" aria-hidden="true"></div>
 
   <div class="page-wrapper">
-    <main class="world-container">
+    <main class="world-container tests-page">
 
       <!-- Top navigation -->
       <header class="world-top-nav reveal" style="--i:0">
-        <a href="/" class="action-btn" title="메인 포털로 이동">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-          </svg>
-          <span>MASHONG</span>
+        <a href="/" class="site-brand" aria-label="마숑 메인으로 이동">
+          <svg class="brand-symbol" viewBox="14 12 72 72" role="img" aria-label="MASHONG 심볼">
+          <rect class="mashong-logo-pillar" x="20" y="28" width="16" height="48" rx="3.5"/>
+          <rect class="mashong-logo-pillar" x="42" y="44" width="16" height="32" rx="3.5"/>
+          <rect class="mashong-logo-pillar" x="64" y="44" width="16" height="32" rx="3.5"/>
+          <g class="mashong-float">
+            <rect class="mashong-float-block" x="64" y="20" width="16" height="16" rx="3.5"/>
+          </g>
+        </svg>
+          <span class="site-brand-name">MASHONG<small>성향 테스트</small></span>
         </a>
         <div class="nav-actions" data-theme-slot>
           <button class="action-btn icon-only" data-action="copy-url" type="button" aria-label="URL 복사" title="URL 복사">
@@ -73,12 +74,14 @@
       </header>
       <p id="mashong-auth-status" class="auth-status" role="status" aria-live="polite"></p>
 
+      <a href="/" class="menu-return">← 마숑 메인으로</a>
+
       <!-- Headline -->
       <section class="world-hero lavender reveal" style="--i:1">
-        <div class="world-icon-badge" aria-hidden="true">🧭</div>
         <div>
           <p class="world-subtitle-tag">MASHONG TESTS</p>
           <h1 class="world-main-heading">성향 테스트</h1>
+          <p class="brand-subtitle">눈치와 센스, 성격, 대인관계까지. 나를 알아가는 검사를 선택해 보세요.</p>
         </div>
       </section>
 
@@ -100,6 +103,7 @@
             </div>
           </div>
           <span class="card-arrow" aria-hidden="true">
+            <span class="card-link-label">검사 시작하기</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
           </span>
         </a>
@@ -119,6 +123,7 @@
             </div>
           </div>
           <span class="card-arrow" aria-hidden="true">
+            <span class="card-link-label">검사 시작하기</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
           </span>
         </a>
@@ -138,6 +143,7 @@
             </div>
           </div>
           <span class="card-arrow" aria-hidden="true">
+            <span class="card-link-label">검사 시작하기</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
           </span>
         </a>
@@ -146,7 +152,7 @@
 
       <footer class="portal-footer reveal" style="--i:5">
         <p class="copyright">© 2026 MASHONG. All rights reserved.</p>
-        <p class="meta-tag">Cloudflare Edge Architecture • mashong.com</p>
+        <p class="meta-tag">mashong.com</p>
       </footer>
 
     </main>
@@ -154,6 +160,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=5" defer></script>
+  <script src="app.js?v=6" defer></script>
 </body>
 </html>
