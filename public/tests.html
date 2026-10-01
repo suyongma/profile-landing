@@ -26,8 +26,8 @@
   <link rel="stylesheet" href="/fonts/pretendard.css">
   <script src="/shared/mashong-account.js?v=1.1" defer></script>
   <script src="/shared/mashong-main.js?v=1" defer></script>
-  <link rel="stylesheet" href="style.css?v=7">
-  <script src="/theme.js?v=7" defer></script>
+  <link rel="stylesheet" href="style.css?v=8">
+  <script src="/theme.js?v=8" defer></script>
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8560052678270280"
@@ -85,6 +85,12 @@
         </div>
       </section>
 
+      <div class="personality-notice">
+        <p data-personality-notice role="status" aria-live="polite">회원의 마지막 검사 결과를 확인하고 있어요.</p>
+        <button class="action-btn" data-personality-login data-mashong-auth="login" type="button" hidden>로그인</button>
+        <button class="action-btn" data-personality-retry type="button" hidden>다시 시도</button>
+      </div>
+
       <!-- Tests -->
       <nav class="menu-container" aria-label="성향 테스트 목록">
 
@@ -99,6 +105,10 @@
               <div class="item-desc-wrap">
                 <span class="item-desc">나의 눈치·센스 유형 테스트</span>
                 <span class="item-acronym"><strong class="acronym-letter">S</strong>ocial <strong class="acronym-letter">T</strong>endency &amp; <strong class="acronym-letter">R</strong>esponse <strong class="acronym-letter">I</strong>ndicator</span>
+              </div>
+              <div class="personality-result" data-personality-result="stri" data-state="pending">
+                <span data-result-label>결과 확인 중…</span>
+                <strong data-result-title></strong>
               </div>
             </div>
           </div>
@@ -120,6 +130,10 @@
                 <span class="item-desc">성격검사</span>
                 <span class="item-acronym"><strong class="acronym-letter">I</strong>nternational <strong class="acronym-letter">P</strong>ersonality <strong class="acronym-letter">I</strong>tem <strong class="acronym-letter">P</strong>ool</span>
               </div>
+              <div class="personality-result" data-personality-result="ipip" data-state="pending">
+                <span data-result-label>결과 확인 중…</span>
+                <strong data-result-title></strong>
+              </div>
             </div>
           </div>
           <span class="card-arrow" aria-hidden="true">
@@ -139,6 +153,10 @@
               <div class="item-desc-wrap">
                 <span class="item-desc">대인관계 성향 테스트</span>
                 <span class="item-acronym"><strong class="acronym-letter">I</strong>nter<strong class="acronym-letter">P</strong>ersonal <strong class="acronym-letter">C</strong>ircumplex</span>
+              </div>
+              <div class="personality-result" data-personality-result="ipc" data-state="pending">
+                <span data-result-label>결과 확인 중…</span>
+                <strong data-result-title></strong>
               </div>
             </div>
           </div>
@@ -160,6 +178,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=7" defer></script>
+  <script src="personality-results.js?v=8" defer></script>
+  <script src="app.js?v=8" defer></script>
 </body>
 </html>

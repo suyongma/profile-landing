@@ -1,9 +1,10 @@
-﻿{
+{
   "name": "profile-landing",
   "version": "1.0.0",
   "private": true,
   "description": "Mashong Official Portal",
   "scripts": {
+    "test": "node --test tests/*.test.mjs",
     "build": "echo 'No build required for static assets'",
     "deploy": "wrangler deploy"
   },

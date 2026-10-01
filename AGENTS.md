@@ -20,6 +20,7 @@ public/            정적 파일 (Workers Assets가 직접 서빙)
   style.css        전체 디자인 (라이트/다크 토큰, :root[data-theme="dark"])
   theme.js         테마 토글 버튼 UI만 (상태·저장은 MashongTheme)
   app.js           토스트, 공유/URL 복사, /api/status 서비스 상태 표시
+  personality-results.js  /tests 전용 회원 마지막 결과 조회 (Auth /api/personality)
   shared/          ⚠ 공통 파일 (직접 수정 금지, 아래 참고)
   fonts/           ⚠ 공통 Pretendard 자체 호스팅 (직접 수정 금지)
   _headers         보안 헤더, 캐시 규칙
@@ -41,7 +42,7 @@ wrangler.json
 ## 캐시 버전 규칙
 
 `_headers`에서 css/js는 1시간 캐시된다. `style.css`, `theme.js`, `app.js`를 바꾸면
-모든 HTML(index/tests/404)에서 `?v=N`을 함께 올린다 (현재 `v=7`). 안 올리면 폰에서 예전 CSS가 남는다.
+모든 HTML(index/tests/404)에서 `?v=N`을 함께 올린다 (현재 `v=8`). 안 올리면 폰에서 예전 CSS가 남는다.
 
 ## 마숑 공통 계정·테마 (2026-10-01 연결)
 
@@ -81,6 +82,14 @@ wrangler.json
 - 320px / 390px / PC, 라이트/다크에서 겹침·가로 스크롤·헤더 두 줄이 없는지 확인한다.
 - 서비스 링크(마숑월드·마PT·테스트들)는 같은 탭에서 연다 (`target="_blank"` 쓰지 않음).
 - "뭐 사지?"는 준비중 카드(링크 없음). `/api/status`에서도 제외돼 있다.
+
+## 성향 테스트 회원 결과 (구현·검증, 운영 적용 전)
+
+- `/tests`만 `personality-results.js`를 로드한다. 조회는 Auth `/api/personality`, credentials 포함·no-store.
+- 완료 결과는 `나의 마지막 결과`와 결과명, 완료 결과가 없으면 정확히 `아직 미검사`로 표시한다.
+- 조회 실패는 미검사/비회원으로 간주하지 않는다. 계정 전환 시 이전 결과와 오래된 응답을 제거한다.
+- 검증: `npm test`. 릴리스 상태와 순서는 `docs/PERSONALITY_RELEASE.md`를 확인한다.
+- Auth migration/API → 메인 → 세 검사 순서로 승인 후 적용한다. 현재 기능은 운영 배포 전이다.
 
 ## 남은 확인 항목 (사용자 실계정·실기기)
 
