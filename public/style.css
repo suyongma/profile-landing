@@ -1099,3 +1099,13 @@ body:is(.tests-layout, .notfound-page) { padding-inline: max(18px, env(safe-area
 :is(.tests-layout, .notfound-page) .profile-hero { flex-direction: column; }
 
 }
+
+/* Member summaries are confined to the tests page. */
+.tests-layout .personality-notice { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: -8px 0 24px; color: var(--text-sub); font-size: 13px; line-height: 1.6; }
+.tests-layout .personality-notice p { flex: 1; min-width: min(100%, 240px); }
+.tests-layout .personality-notice .action-btn { width: auto; padding: 8px 12px; }
+.tests-layout .personality-notice [hidden] { display: none; }
+.tests-layout .personality-result { display: flex; flex-direction: column; gap: 5px; margin-top: 8px; padding-top: 13px; border-top: 1px solid var(--tone-border); }
+.tests-layout [data-result-label] { color: var(--text-sub); font-size: 12px; font-weight: 500; }
+.tests-layout [data-result-title] { color: var(--text-main); font-size: 15px; font-weight: 700; line-height: 1.5; overflow-wrap: anywhere; }
+.tests-layout [data-result-title]:empty { display: none; }
