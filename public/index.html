@@ -34,8 +34,8 @@
   <link rel="stylesheet" href="/fonts/pretendard.css">
   <script src="/shared/mashong-account.js?v=1.1" defer></script>
   <script src="/shared/mashong-main.js?v=1" defer></script>
-  <link rel="stylesheet" href="style.css?v=10">
-  <script src="/theme.js?v=10" defer></script>
+  <link rel="stylesheet" href="style.css?v=11">
+  <script src="/theme.js?v=11" defer></script>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -195,23 +195,34 @@
         <div class="shopping-banner-slot" id="coupang-banner">
           <script src="https://ads-partners.coupang.com/g.js"></script>
           <script>
-            const coupangBanner = document.getElementById('coupang-banner');
-            if (window.PartnersCoupang && typeof window.PartnersCoupang.G === 'function') {
-              try {
-                new PartnersCoupang.G({
-                  id: 1038175,
-                  template: 'carousel',
-                  trackingCode: 'AF5232438',
-                  width: String(Math.min(320, Math.floor(coupangBanner.clientWidth))),
-                  height: '140',
-                  tsource: ''
-                });
-              } catch {
-                coupangBanner.textContent = '상품 배너를 불러오지 못했습니다.';
+            (() => {
+              const slot = document.getElementById('coupang-banner');
+              const width = String(Math.min(320, Math.floor(slot.clientWidth)));
+              const options = {id: 1038175, template: 'carousel', trackingCode: 'AF5232438', width, height: '140', tsource: ''};
+              function loadDirectBanner() {
+                const url = new URL('https://ads-partners.coupang.com/widgets.html');
+                for (const [key, value] of Object.entries(options)) url.searchParams.set(key, String(value));
+                url.searchParams.set('tag', 'iframe');
+                url.searchParams.set('serverBaseUrl', 'https://ads-partners.coupang.com/');
+                url.searchParams.set('logServerBaseUrl', 'https://logs-partners.coupang.com/log/');
+                const frame = document.createElement('iframe');
+                frame.src = url.href;
+                frame.title = '쿠팡 추천 상품';
+                frame.width = width;
+                frame.height = '140';
+                frame.setAttribute('scrolling', 'no');
+                slot.replaceChildren(frame);
               }
-            } else {
-              coupangBanner.textContent = '상품 배너를 불러오지 못했습니다.';
-            }
+              if (window.PartnersCoupang && typeof window.PartnersCoupang.G === 'function') {
+                try {
+                  new PartnersCoupang.G(options);
+                } catch {
+                  loadDirectBanner();
+                }
+              } else {
+                loadDirectBanner();
+              }
+            })();
           </script>
         </div>
       </section>
@@ -228,6 +239,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=10" defer></script>
+  <script src="app.js?v=11" defer></script>
 </body>
 </html>

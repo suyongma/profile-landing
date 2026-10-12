@@ -239,7 +239,8 @@ a {
   margin: 0;
   color: var(--text-main);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 .shopping-disclosure {
@@ -261,6 +262,7 @@ a {
 .shopping-banner-slot iframe {
   display: block;
   max-width: 100%;
+  border: 0;
 }
 
 /* Entrance animation (staggered via --i) */
