@@ -34,8 +34,8 @@
   <link rel="stylesheet" href="/fonts/pretendard.css">
   <script src="/shared/mashong-account.js?v=1.1" defer></script>
   <script src="/shared/mashong-main.js?v=1" defer></script>
-  <link rel="stylesheet" href="style.css?v=8">
-  <script src="/theme.js?v=8" defer></script>
+  <link rel="stylesheet" href="style.css?v=9">
+  <script src="/theme.js?v=9" defer></script>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -189,6 +189,33 @@
 
       </nav>
 
+      <section class="shopping-banner" aria-labelledby="shopping-banner-title">
+        <h2 id="shopping-banner-title">쿠팡에서 관심 상품 둘러보기</h2>
+        <p class="shopping-disclosure">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+        <div class="shopping-banner-slot" id="coupang-banner">
+          <script src="https://ads-partners.coupang.com/g.js"></script>
+          <script>
+            const coupangBanner = document.getElementById('coupang-banner');
+            if (window.PartnersCoupang && typeof window.PartnersCoupang.G === 'function') {
+              try {
+                new PartnersCoupang.G({
+                  id: 1038175,
+                  template: 'carousel',
+                  trackingCode: 'AF5232438',
+                  width: String(Math.min(320, Math.floor(coupangBanner.clientWidth))),
+                  height: '140',
+                  tsource: ''
+                });
+              } catch {
+                coupangBanner.textContent = '상품 배너를 불러오지 못했습니다.';
+              }
+            } else {
+              coupangBanner.textContent = '상품 배너를 불러오지 못했습니다.';
+            }
+          </script>
+        </div>
+      </section>
+
       <!-- Footer -->
       <footer class="portal-footer reveal" style="--i:6">
         <p class="copyright">© 2026 MASHONG. All rights reserved.</p>
@@ -201,6 +228,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=8" defer></script>
+  <script src="app.js?v=9" defer></script>
 </body>
 </html>

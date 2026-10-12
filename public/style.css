@@ -228,6 +228,41 @@ a {
   text-align: center;
 }
 
+/* Main portal only: partner banner below the service menu. */
+.shopping-banner {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.shopping-banner h2 {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.shopping-disclosure {
+  margin: 8px 0 12px;
+  color: var(--text-sub);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.shopping-banner-slot {
+  width: 100%;
+  max-width: 320px;
+  min-height: 140px;
+  margin: 0 auto;
+  color: var(--text-sub);
+  font-size: 12px;
+}
+
+.shopping-banner-slot iframe {
+  display: block;
+  max-width: 100%;
+}
+
 /* Entrance animation (staggered via --i) */
 .reveal {
   animation: reveal-up 0.6s var(--ease) both;
