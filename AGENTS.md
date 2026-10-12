@@ -44,7 +44,7 @@ wrangler.json
 ## 캐시 버전 규칙
 
 `_headers`에서 css/js는 1시간 캐시된다. `style.css`, `theme.js`, `app.js`를 바꾸면
-모든 HTML(index/tests/404)에서 `?v=N`을 함께 올린다 (현재 `v=9`). 안 올리면 폰에서 예전 CSS가 남는다.
+모든 HTML(index/tests/404)에서 `?v=N`을 함께 올린다 (현재 `v=10`). 안 올리면 폰에서 예전 CSS가 남는다.
 
 ## 마숑 공통 계정·테마 (2026-10-01 연결)
 
