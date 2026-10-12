@@ -6,7 +6,7 @@ const SERVICES = {
   ipip: 'https://ipip.mashong.com/',
   ipc: 'https://ipc.mashong.com/',
   mapt: 'https://mapt.mashong.com/',
-  // shopping (뭐 사지?) is coming soon; excluded so it does not mark the portal degraded.
+  shopping: 'https://shopping.mashong.com/',
   world: 'https://world.mashong.com/',
 };
 

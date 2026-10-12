@@ -55,15 +55,15 @@ await parallel([
     const location = response.headers.get('location');
     check(response.status === 301 && location && new URL(location).origin === expected, `${url} canonical 301`);
   }]),
-  ...['world', 'mapt', 'stri', 'ipip', 'ipc'].map(service => [service, async () => {
+  ...['world', 'mapt', 'stri', 'ipip', 'ipc', 'shopping'].map(service => [service, async () => {
     const response = await get(`https://${service}.mashong.com/`);
     check(response.status >= 200 && response.status < 400, `${service} HTTP ${response.status}`);
   }]),
   ['상태 API', async () => {
     const response = await get(`${base}/api/status`);
     const data = JSON.parse(response.body.toString());
-    check(response.status === 200 && ['world', 'mapt', 'stri', 'ipip', 'ipc'].every(id => data.services?.[id] === true), '5개 서비스 상태');
-    check(!Object.hasOwn(data.services || {}, 'shopping'), '준비중 서비스 제외');
+    check(response.status === 200 && ['world', 'mapt', 'stri', 'ipip', 'ipc', 'shopping'].every(id => data.services?.[id] === true), '6개 서비스 상태');
+    check(data.codes?.shopping === 200, '쇼핑 운영 응답');
   }],
   ['Auth', async () => {
     const response = await get('https://auth.mashong.com/api/me', { Origin: base });
