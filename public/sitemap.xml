@@ -3,4 +3,5 @@
   <url><loc>https://mashong.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://mashong.com/tests</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://mashong.com/sproutpocket/privacy/</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://mashong.com/apps/privacy/</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
 </urlset>

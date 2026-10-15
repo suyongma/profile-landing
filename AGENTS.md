@@ -116,3 +116,10 @@ wrangler.json
 - `.local-recovery/`는 로컬 런타임·이전 Auth 검토 패치 보존용이며 Git/배포 대상이 아니다.
   성향 테스트 회원 결과 PR #1은 main에 병합됐다. 현재 운영 상태는 `docs/PERSONALITY_RELEASE.md`를 따른다.
 - `push_to_github.ps1`은 예전 Windows 환경용 스크립트로 현재 사용하지 않는다.
+
+## 앱 개인정보 안내
+
+- `/apps/privacy/`: 네 iOS 앱의 현재 처리 현황과 적용 예정 보관·삭제 기준을 구분해 안내한다.
+- 소스는 `public/apps/privacy/index.html`, 전용 스타일은 같은 폴더의 `privacy.css`다. 기존 공통 CSS·JS는 변경하지 않는다.
+- 서버 삭제 API·자동 정리·백업 만료가 구현됐다고 쓰지 않는다. 최소 연령·처리 국가·실제 보관 설정은 확인된 사실만 갱신한다.
+- `/sproutpocket/privacy/`는 기존 URL과 내용을 보존한다. 앱 안내의 AdMob 설명은 웹에 광고 스크립트를 재삽입하는 것이 아니다.
