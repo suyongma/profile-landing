@@ -44,7 +44,7 @@ wrangler.json
 ## 캐시 버전 규칙
 
 `_headers`에서 css/js는 1시간 캐시된다. `style.css`, `theme.js`, `app.js`를 바꾸면
-모든 HTML(index/tests/404)에서 `?v=N`을 함께 올린다 (현재 `v=11`). 안 올리면 폰에서 예전 CSS가 남는다.
+모든 HTML(index/tests/404)에서 `?v=N`을 함께 올린다 (현재 `v=12`). 안 올리면 폰에서 예전 CSS가 남는다.
 
 ## 마숑 공통 계정·테마 (2026-10-01 연결)
 
@@ -74,6 +74,8 @@ wrangler.json
 ## 레이아웃 메모
 
 - 메인 첫 페이지는 기존 440px 중앙 카드·프로필·세로 서비스 메뉴와 UI 스타일을 유지하고 색상만 통일한다.
+  서비스 카드 소품은 `public/assets/service-cards/*-v1.webp`를 사용하고 기존 화살표 영역 중앙에 표시한다.
+  Meshy 원본 GLB와 생성 기록은 `output/meshy-cards/`, 작업 설명은 `docs/MESHY_SERVICE_CARDS.md`에 있다.
   성향 테스트 목록은 최대 너비 1060px, PC 3열·모바일(≤900px) 1열 카드 구성이다.
   테스트 페이지 전용 레이아웃은 `.tests-layout` 범위에 적용해 메인 배치에 영향을 주지 않는다.
 - 메인 카드 상단 `.card-topbar`: 왼쪽 브랜드 심볼, 오른쪽 `.card-actions[data-theme-slot]`
