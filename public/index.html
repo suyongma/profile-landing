@@ -34,8 +34,8 @@
   <link rel="stylesheet" href="/fonts/pretendard.css">
   <script src="/shared/mashong-account.js?v=1.1" defer></script>
   <script src="/shared/mashong-main.js?v=1" defer></script>
-  <link rel="stylesheet" href="style.css?v=12">
-  <script src="/theme.js?v=12" defer></script>
+  <link rel="stylesheet" href="style.css?v=13">
+  <script src="/theme.js?v=13" defer></script>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -192,44 +192,6 @@
 
       </nav>
 
-      <section class="shopping-banner" aria-labelledby="shopping-banner-title">
-        <h2 id="shopping-banner-title">광고 · 쿠팡 추천 상품</h2>
-        <p class="shopping-disclosure">쿠팡 파트너스 활동으로 수수료를 받습니다.</p>
-        <div class="shopping-banner-slot" id="coupang-banner">
-          <script src="https://ads-partners.coupang.com/g.js"></script>
-          <script>
-            (() => {
-              const slot = document.getElementById('coupang-banner');
-              const width = String(Math.min(320, Math.floor(slot.clientWidth)));
-              const options = {id: 1038175, template: 'carousel', trackingCode: 'AF5232438', width, height: '140', tsource: ''};
-              function loadDirectBanner() {
-                const url = new URL('https://ads-partners.coupang.com/widgets.html');
-                for (const [key, value] of Object.entries(options)) url.searchParams.set(key, String(value));
-                url.searchParams.set('tag', 'iframe');
-                url.searchParams.set('serverBaseUrl', 'https://ads-partners.coupang.com/');
-                url.searchParams.set('logServerBaseUrl', 'https://logs-partners.coupang.com/log/');
-                const frame = document.createElement('iframe');
-                frame.src = url.href;
-                frame.title = '쿠팡 추천 상품';
-                frame.width = width;
-                frame.height = '140';
-                frame.setAttribute('scrolling', 'no');
-                slot.replaceChildren(frame);
-              }
-              if (window.PartnersCoupang && typeof window.PartnersCoupang.G === 'function') {
-                try {
-                  new PartnersCoupang.G(options);
-                } catch {
-                  loadDirectBanner();
-                }
-              } else {
-                loadDirectBanner();
-              }
-            })();
-          </script>
-        </div>
-      </section>
-
       <!-- Footer -->
       <footer class="portal-footer reveal" style="--i:6">
         <p class="copyright">© 2026 MASHONG. All rights reserved.</p>
@@ -242,6 +204,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=12" defer></script>
+  <script src="app.js?v=13" defer></script>
 </body>
 </html>
