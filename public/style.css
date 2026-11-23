@@ -846,6 +846,42 @@ a {
   min-width: 0;
 }
 
+.main-portal {
+  --font-display: var(--font-sans);
+}
+
+.main-language-toggle {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  background: var(--bg-card);
+  color: var(--text-main);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 650;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.main-language-toggle:hover {
+  background: var(--bg-elevated);
+}
+
+@media (max-width: 760px) {
+  .main-language-toggle {
+    min-height: 32px;
+    position: relative;
+  }
+
+  .main-language-toggle::after {
+    content: "";
+    position: absolute;
+    inset: -6px 0;
+  }
+}
+
 /* Shown only when the account adapter has something to say (e.g. status check failed). */
 .auth-status {
   margin: -2px 0 14px;

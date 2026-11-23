@@ -44,7 +44,7 @@ wrangler.json
 ## 캐시 버전 규칙
 
 `_headers`에서 css/js는 1시간 캐시된다. `style.css`, `theme.js`, `app.js`를 바꾸면
-모든 HTML(index/tests/404)에서 `?v=N`을 함께 올린다 (현재 `v=14`). 안 올리면 폰에서 예전 CSS가 남는다.
+모든 HTML(index/tests/404)에서 `?v=N`을 함께 올린다 (현재 `v=15`). 안 올리면 폰에서 예전 CSS가 남는다.
 
 ## 마숑 공통 계정·테마 (2026-10-01 연결)
 
@@ -72,6 +72,8 @@ wrangler.json
   CSS 다크 모드는 `:root[data-theme="dark"]` 기준 (OS 미디어쿼리로 다크를 강제하지 않는다).
 
 ## 레이아웃 메모
+
+- 메인 홈은 영어가 기본이며 언어 버튼의 선택은 `main-language.js`가 이 브라우저에 저장한다. 한국어와 영어 모두 Pretendard를 사용한다.
 
 - 메인 첫 페이지는 기존 440px 중앙 카드·프로필·세로 서비스 메뉴와 UI 스타일을 유지하고 색상만 통일한다.
   서비스 카드 오른쪽에는 이동 화살표를 표시한다. Meshy 작업 이력은 `docs/MESHY_SERVICE_CARDS.md`에 있다.

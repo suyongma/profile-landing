@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>MASHONG | Official Portal</title>
-  <meta name="description" content="마숑(MASHONG) 공식 포털 — 성향 테스트, 마숑월드, 마PT, 뭐 사지? 서비스를 한곳에서 만나보세요.">
+  <meta name="description" content="The official MASHONG portal for personality tests, MASHONG World, MaPT, shopping, and Studio." data-ko-content="마숑(MASHONG) 공식 포털 — 성향 테스트, 마숑월드, 마PT, 뭐 사지? 서비스를 한곳에서 만나보세요.">
   <link rel="canonical" href="https://mashong.com/">
   <meta name='impact-site-verification' value='f431e215-854f-4298-9672-1363e52f7099'>
   <meta name="theme-color" content="#f8f4f0" media="(prefers-color-scheme: light)">
@@ -13,10 +13,10 @@
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="MASHONG">
-  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale" content="en_US" data-ko-content="ko_KR">
   <meta property="og:url" content="https://mashong.com/">
   <meta property="og:title" content="MASHONG • Official Portal">
-  <meta property="og:description" content="성향 테스트, 마숑월드, 마PT, 뭐 사지? — 마숑의 모든 서비스를 한곳에서.">
+  <meta property="og:description" content="Personality tests, MASHONG World, MaPT, shopping, and Studio." data-ko-content="성향 테스트, 마숑월드, 마PT, 뭐 사지? — 마숑의 모든 서비스를 한곳에서.">
   <meta property="og:image" content="https://mashong.com/assets/og-image.jpg">
   <meta name="twitter:card" content="summary">
 
@@ -24,18 +24,13 @@
   <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=3">
 
-  <!-- Fonts: Pretendard (Korean) + Plus Jakarta Sans (Latin display) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
-
   <!-- Shared MASHONG theme: sync, before CSS, so the first paint uses the right theme -->
   <script src="/shared/mashong-theme.js?v=1"></script>
   <link rel="stylesheet" href="/fonts/pretendard.css">
   <script src="/shared/mashong-account.js?v=1.1" defer></script>
   <script src="/shared/mashong-main.js?v=1" defer></script>
-  <link rel="stylesheet" href="style.css?v=14">
-  <script src="/theme.js?v=14" defer></script>
+  <link rel="stylesheet" href="style.css?v=15">
+  <script src="/theme.js?v=15" defer></script>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -49,7 +44,7 @@
   </script>
 
 </head>
-<body>
+<body class="main-portal">
   <div class="ambient-glow" aria-hidden="true"></div>
 
   <div class="page-wrapper">
@@ -57,7 +52,7 @@
       <!-- Card top bar: brand symbol · theme toggle (theme.js) · MASHONG account -->
       <div class="card-topbar">
         <!-- Brand symbol (Modular Grid). 원본: /Volumes/T7/AI/projects/mashong-brand -->
-        <svg class="brand-symbol" viewBox="14 12 72 72" role="img" aria-label="MASHONG 심볼">
+        <svg class="brand-symbol" viewBox="14 12 72 72" role="img" aria-label="MASHONG symbol" data-ko-aria-label="MASHONG 심볼">
           <rect class="mashong-logo-pillar" x="20" y="28" width="16" height="48" rx="3.5"/>
           <rect class="mashong-logo-pillar" x="42" y="44" width="16" height="32" rx="3.5"/>
           <rect class="mashong-logo-pillar" x="64" y="44" width="16" height="32" rx="3.5"/>
@@ -66,6 +61,9 @@
           </g>
         </svg>
         <div class="card-actions" data-theme-slot>
+          <button class="main-language-toggle" type="button" aria-label="Switch to Korean" hidden>
+            <span lang="ko">한국어</span>
+          </button>
           <mashong-account id="mashong-account"></mashong-account>
         </div>
       </div>
@@ -74,8 +72,8 @@
       <!-- Profile Avatar & Brand Header -->
       <section class="profile-hero reveal" style="--i:0">
         <div class="profile-avatar-wrap">
-          <img src="/assets/profile.jpg" alt="마숑 프로필 일러스트" class="profile-avatar" width="96" height="96" fetchpriority="high">
-          <div class="avatar-badge" title="Verified" aria-hidden="true">
+          <img src="/assets/profile.jpg" alt="MASHONG profile illustration" data-ko-alt="마숑 프로필 일러스트" class="profile-avatar" width="96" height="96" fetchpriority="high">
+          <div class="avatar-badge" title="Verified" data-ko-title="확인됨" aria-hidden="true">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
               <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
             </svg>
@@ -98,7 +96,7 @@
               <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
               <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
             </svg>
-            <span>공유하기</span>
+            <span data-ko="공유하기">Share</span>
           </button>
         </div>
       </section>
@@ -106,7 +104,7 @@
       <div class="divider reveal" style="--i:1" aria-hidden="true"></div>
 
       <!-- Navigation Menu -->
-      <nav class="menu-container" aria-label="마숑 서비스">
+      <nav class="menu-container" aria-label="MASHONG services" data-ko-aria-label="마숑 서비스">
 
         <!-- Menu 1: 성향 테스트 -->
         <a href="/tests" class="menu-card lavender reveal" style="--i:2" id="link-tests">
@@ -114,11 +112,11 @@
             <span class="card-num" aria-hidden="true">01</span>
             <div class="card-body">
               <div class="card-title-row">
-                <span class="card-title">성향 테스트</span>
+                <span class="card-title" data-ko="성향 테스트">Personality Tests</span>
                 <span class="status-pill"><span class="svc-dot" data-service="stri,ipip,ipc" aria-hidden="true"></span>ENTER</span>
               </div>
               <div class="item-desc-wrap">
-                <span class="item-desc">STRI · IPIP · IPC 외 다양한 성향 검사</span>
+                <span class="item-desc" data-ko="STRI · IPIP · IPC 외 다양한 성향 검사">STRI, IPIP, IPC and more personality tests</span>
               </div>
             </div>
           </div>
@@ -133,12 +131,12 @@
             <span class="card-num" aria-hidden="true">02</span>
             <div class="card-body">
               <div class="card-title-row">
-                <span class="card-title">마숑월드</span>
+                <span class="card-title" data-ko="마숑월드">MASHONG World</span>
                 <span class="status-pill"><span class="svc-dot" data-service="world" aria-hidden="true"></span>ENTER</span>
               </div>
               <div class="item-desc-wrap">
-                <span class="item-desc">회원공간 (자동매매 dashboard)</span>
-                <span class="item-subtext">FUN PLAY 게임 · 인베스트 (INVEST) 플랫폼</span>
+                <span class="item-desc" data-ko="회원공간 (자동매매 dashboard)">Members’ automated trading dashboard</span>
+                <span class="item-subtext" data-ko="FUN PLAY 게임 · 인베스트 (INVEST) 플랫폼">FUN PLAY games · INVEST platform</span>
               </div>
             </div>
           </div>
@@ -153,7 +151,7 @@
             <span class="card-num" aria-hidden="true">03</span>
             <div class="card-body">
               <div class="card-title-row">
-                <span class="card-title">마PT (Chat MaPT)</span>
+                <span class="card-title" data-ko="마PT (Chat MaPT)">MaPT (Chat MaPT)</span>
                 <span class="status-pill"><span class="svc-dot" data-service="mapt" aria-hidden="true"></span>AI</span>
               </div>
               <div class="item-desc-wrap">
@@ -172,12 +170,12 @@
             <span class="card-num" aria-hidden="true">04</span>
             <div class="card-body">
               <div class="card-title-row">
-                <span class="card-title">뭐 사지?</span>
+                <span class="card-title" data-ko="뭐 사지?">What Should I Buy?</span>
                 <span class="status-pill"><span class="svc-dot" data-service="shopping" aria-hidden="true"></span>SHOP</span>
               </div>
               <div class="item-desc-wrap">
-                <span class="item-desc">마숑 쇼핑 · 취향에 맞는 상품 찾기</span>
-                <span class="item-subtext">월령·예산·놀이 취향으로 장난감부터 살펴보세요</span>
+                <span class="item-desc" data-ko="마숑 쇼핑 · 취향에 맞는 상품 찾기">MASHONG Shopping · Find products for you</span>
+                <span class="item-subtext" data-ko="월령·예산·놀이 취향으로 장난감부터 살펴보세요">Explore toys by age, budget, and play preferences</span>
               </div>
             </div>
           </div>
@@ -192,11 +190,11 @@
             <span class="card-num" aria-hidden="true">05</span>
             <div class="card-body">
               <div class="card-title-row">
-                <span class="card-title">작업실</span>
+                <span class="card-title" data-ko="작업실">Studio</span>
                 <span class="status-pill"><span class="svc-dot" data-service="studio" aria-hidden="true"></span>CONTENT</span>
               </div>
               <div class="item-desc-wrap">
-                <span class="item-desc">여름 작업실 · 단편 영화, 게임, 앱</span>
+                <span class="item-desc" data-ko="여름 작업실 · 단편 영화, 게임, 앱">Yeoreum Studio · Short films, games, and apps</span>
               </div>
             </div>
           </div>
@@ -211,7 +209,7 @@
       <footer class="portal-footer reveal" style="--i:6">
         <p class="copyright">© 2026 MASHONG. All rights reserved.</p>
         <p class="meta-tag">Cloudflare Edge Architecture • mashong.com</p>
-        <p class="footer-email">e-mail 문의: <a href="mailto:mso0504@naver.com">mso0504@naver.com</a></p>
+        <p class="footer-email"><span data-ko="이메일 문의:">Email:</span> <a href="mailto:mso0504@naver.com">mso0504@naver.com</a></p>
       </footer>
 
     </main>
@@ -219,6 +217,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="app.js?v=14" defer></script>
+  <script src="/main-language.js?v=1" defer></script>
+  <script src="app.js?v=15" defer></script>
 </body>
 </html>

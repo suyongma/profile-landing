@@ -1,6 +1,8 @@
 // Shared behaviour for all MASHONG pages: toast, share / copy URL, live service status.
 (() => {
   const CANONICAL_ORIGIN = 'https://mashong.com';
+  const isHome = document.body.classList.contains('main-portal');
+  const englishHome = () => isHome && document.documentElement.lang === 'en';
 
   // --------------------------------------------------------------------------
   // Toast
@@ -55,7 +57,8 @@
     } else {
       ok = fallbackCopy(url);
     }
-    showToast(ok ? '🔗 페이지 주소가 복사되었습니다!' : '주소: ' + url);
+    if (englishHome()) showToast(ok ? '🔗 Link copied!' : 'Link: ' + url);
+    else showToast(ok ? '🔗 페이지 주소가 복사되었습니다!' : '주소: ' + url);
   }
 
   async function share() {
@@ -91,6 +94,8 @@
   const dots = document.querySelectorAll('[data-service]');
   const summary = document.querySelector('[data-status-summary]');
   if (!dots.length && !summary) return;
+  let currentServices = null;
+  let statusFailed = false;
 
   function render(services) {
     dots.forEach((dot) => {
@@ -99,7 +104,9 @@
       if (!known.length) return;
       const up = known.every((id) => services[id]);
       dot.dataset.state = up ? 'up' : 'down';
-      dot.title = up ? '정상 운영 중' : '일시적으로 응답이 없습니다';
+      dot.title = englishHome()
+        ? (up ? 'Operational' : 'Temporarily unavailable')
+        : (up ? '정상 운영 중' : '일시적으로 응답이 없습니다');
     });
 
     if (summary) {
@@ -109,15 +116,49 @@
       const label = summary.querySelector('[data-status-label]');
       summary.dataset.state = allUp ? 'ok' : 'degraded';
       if (label) {
-        label.textContent = allUp ? 'All Systems Normal' : `${upCount}/${values.length} Services Online`;
+        const koreanHome = isHome && !englishHome();
+        label.textContent = koreanHome
+          ? (allUp ? '모든 서비스 정상' : `서비스 ${upCount}/${values.length} 정상`)
+          : (allUp ? 'All Systems Normal' : `${upCount}/${values.length} Services Online`);
       }
     }
   }
 
+  function renderHomeStatus() {
+    if (currentServices) {
+      render(currentServices);
+      return;
+    }
+    const label = summary?.querySelector('[data-status-label]');
+    if (!label) return;
+    if (statusFailed) {
+      label.textContent = englishHome() ? 'Status unavailable' : '상태 확인 불가';
+    } else {
+      label.textContent = englishHome() ? 'Checking…' : '상태 확인 중…';
+    }
+  }
+
+  if (isHome) {
+    window.addEventListener('mashong-main-language-change', renderHomeStatus);
+    renderHomeStatus();
+  }
+
   fetch('/api/status', { headers: { accept: 'application/json' } })
     .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-    .then((body) => render(body.services || {}))
+    .then((body) => {
+      currentServices = body.services || {};
+      if (isHome && !Object.keys(currentServices).length) {
+        currentServices = null;
+        throw Error('Missing service status');
+      }
+      render(currentServices);
+    })
     .catch(() => {
+      if (isHome) {
+        statusFailed = true;
+        renderHomeStatus();
+        return;
+      }
       // Status endpoint unavailable (e.g. opened as a plain file): keep a neutral badge.
       if (summary) {
         summary.dataset.state = 'ok';

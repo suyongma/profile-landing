@@ -3,6 +3,7 @@
 (() => {
   const MODES = ['auto', 'light', 'dark'];
   const LABELS = { auto: '자동 (시스템 설정)', light: '라이트 모드', dark: '다크 모드' };
+  const EN_LABELS = { auto: 'Auto (system)', light: 'Light mode', dark: 'Dark mode' };
   const ICONS = {
     auto: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>',
     light: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>',
@@ -20,8 +21,11 @@
 
     function render(mode) {
       btn.innerHTML = ICONS[mode] || ICONS.auto;
-      btn.title = '테마: ' + LABELS[mode];
-      btn.setAttribute('aria-label', '테마 변경 — 현재 ' + LABELS[mode]);
+      const english = document.body.classList.contains('main-portal') && document.documentElement.lang === 'en';
+      btn.title = english ? 'Theme: ' + EN_LABELS[mode] : '테마: ' + LABELS[mode];
+      btn.setAttribute('aria-label', english
+        ? 'Change theme — current: ' + EN_LABELS[mode]
+        : '테마 변경 — 현재 ' + LABELS[mode]);
       btn.dataset.mode = mode;
     }
 
@@ -30,6 +34,7 @@
       theme.set(next);
     });
     window.addEventListener('mashong-theme-change', (e) => render(e.detail.mode));
+    window.addEventListener('mashong-main-language-change', () => render(theme.getMode()));
 
     // Header slot next to the account button; otherwise the card corner, then the page corner.
     const slot = document.querySelector('[data-theme-slot]');
