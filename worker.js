@@ -8,6 +8,7 @@ const SERVICES = {
   mapt: 'https://mapt.mashong.com/',
   shopping: 'https://shopping.mashong.com/',
   world: 'https://world.mashong.com/',
+  studio: 'https://go.mashong.com/',
 };
 
 const STATUS_TTL_SECONDS = 60;

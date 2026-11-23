@@ -85,7 +85,9 @@ wrangler.json
 - 320px / 390px / PC, 라이트/다크에서 겹침·가로 스크롤·헤더 두 줄이 없는지 확인한다.
 - 서비스 링크(마숑월드·마PT·테스트들)는 같은 탭에서 연다 (`target="_blank"` 쓰지 않음).
 - "뭐 사지?"는 `https://shopping.mashong.com/`의 마숑 쇼핑으로 같은 탭 연결한다.
-  `/api/status`는 shopping을 포함한 6개 서비스를 점검한다. P6의 상품 검수·공개 조건은 별도로 유지한다.
+  P6의 상품 검수·공개 조건은 별도로 유지한다.
+- "작업실"은 `https://go.mashong.com/`으로 같은 탭 연결한다.
+  `/api/status`는 shopping과 studio를 포함한 7개 주소를 점검한다.
 
 ## 성향 테스트 회원 결과 (2026-10-02 운영 반영)
 

@@ -59,10 +59,14 @@ await parallel([
     const response = await get(`https://${service}.mashong.com/`);
     check(response.status >= 200 && response.status < 400, `${service} HTTP ${response.status}`);
   }]),
+  ['studio', async () => {
+    const response = await get('https://go.mashong.com/');
+    check(response.status >= 200 && response.status < 400, `studio HTTP ${response.status}`);
+  }],
   ['상태 API', async () => {
     const response = await get(`${base}/api/status`);
     const data = JSON.parse(response.body.toString());
-    check(response.status === 200 && ['world', 'mapt', 'stri', 'ipip', 'ipc', 'shopping'].every(id => data.services?.[id] === true), '6개 서비스 상태');
+    check(response.status === 200 && ['world', 'mapt', 'stri', 'ipip', 'ipc', 'shopping', 'studio'].every(id => data.services?.[id] === true), '7개 서비스 상태');
     check(data.codes?.shopping === 200, '쇼핑 운영 응답');
   }],
   ['Auth', async () => {
