@@ -1,0 +1,60 @@
+:root {
+  --bg: #f6f3ec;
+  --ink: #1b1a17;
+  --soft: #5d5a52;
+  --line: #d8d2c4;
+  --accent: #c8461f;
+  --card: #fffdf8;
+  --note-bg: #fff3d6;
+  --note-ink: #6b4a00;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121217;
+    --ink: #f4f1ea;
+    --soft: #b4afa4;
+    --line: #34323a;
+    --accent: #f08a5d;
+    --card: #1b1b22;
+    --note-bg: #3a2f14;
+    --note-ink: #f2d38a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Pretendard", "Hiragino Sans", "Apple SD Gothic Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.7;
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+[lang="ko"] { word-break: keep-all; }
+main { max-width: 720px; margin: 0 auto; padding: 32px 16px 80px; }
+header.page { border-bottom: 2px solid var(--ink); padding-bottom: 20px; margin-bottom: 8px; }
+.brand { font-weight: 800; letter-spacing: 0.02em; font-size: 15px; color: var(--soft); margin: 0 0 6px; }
+h1 { font-size: 34px; line-height: 1.2; margin: 0; font-weight: 900; }
+.updated { color: var(--soft); font-size: 14px; margin: 10px 0 0; }
+nav.langs { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 0; }
+nav.langs a {
+  color: var(--ink); text-decoration: none; border: 1px solid var(--line); border-radius: 999px;
+  padding: 4px 14px; font-size: 14px; background: var(--card);
+}
+nav.langs a:hover { border-color: var(--ink); }
+section.lang { padding-top: 28px; }
+section.lang + section.lang { border-top: 1px solid var(--line); margin-top: 40px; }
+h2 { font-size: 22px; margin: 28px 0 8px; }
+h3 { font-size: 18px; margin: 22px 0 6px; }
+p, li { color: var(--ink); }
+ul { padding-left: 1.2em; }
+li { margin: 4px 0; }
+a { color: var(--accent); }
+.muted { color: var(--soft); }
+.draft {
+  background: var(--note-bg); color: var(--note-ink); border-radius: 8px; padding: 10px 14px; font-size: 14px; margin: 16px 0 0;
+}
+.qa { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 4px 18px 10px; margin: 14px 0; }
+footer { margin-top: 56px; color: var(--soft); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; }
+@media print { nav.langs, .draft { display: none; } }
